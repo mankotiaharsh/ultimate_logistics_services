@@ -10,6 +10,17 @@ const labelFor = (to) => {
   return l === 'Pan India Service' ? 'Pan India Transport' : l;
 };
 
+// Photo, icon and one-line summary for each card in the "Related Services" block.
+const small = (url) => url.replace('w=1920', 'w=700');
+const RELATED_INFO = {
+  '/full-truck-load': [IMG.truck1, 'truck', 'A dedicated truck for your load with direct, non-stop delivery.'],
+  '/part-truck-load': [IMG.truck2, 'fmcg', 'Share truck space and pay only for what your cargo uses.'],
+  '/door-to-door-transport': [small(IMG.hero2), 'map', 'Pickup from your doorstep, delivery to the receiver.'],
+  '/pan-india-transport-service': [small(IMG.quotePort), 'gps', 'Road freight to every state, city and pincode in India.'],
+  '/b2b-logistics-company-india': [IMG.truck3, 'b2b', 'Freight for manufacturers and traders with GST-ready billing.'],
+  '/transport-services-in-ludhiana': [IMG.truck1, 'steel', 'Local and outstation transport for Ludhiana businesses.'],
+};
+
 // Shared layout for every service page and every route page.
 export default function DetailPage({ data: d }) {
   useTitle(d.seoTitle);
@@ -75,18 +86,31 @@ export default function DetailPage({ data: d }) {
 
       <Faq items={d.faqs} />
 
-      <section className="related-section pb-70">
+      <section className="related-section pt-100 pb-100">
         <div className="container">
           <SectionTitle tag="Explore More" title="Related Services" />
-          <div className="grid-4">
-            {d.related.map((to) => (
-              <Link key={to} to={to} className="related-card">{labelFor(to)} <FaArrowRight /></Link>
-            ))}
+          <div className="related-grid">
+            {d.related.map((to) => {
+              const [img, icon, text] = RELATED_INFO[to] || [IMG.truck1, 'truck', ''];
+              return (
+                <Link key={to} to={to} className="related-card">
+                  <div className="related-img">
+                    <img src={img} alt={labelFor(to)} loading="lazy" />
+                    <span className="related-icon"><Icon name={icon} /></span>
+                  </div>
+                  <div className="related-body">
+                    <h3>{labelFor(to)}</h3>
+                    {text && <p>{text}</p>}
+                    <span className="related-more">View Service <FaArrowRight /></span>
+                  </div>
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      <section className="seo-about pb-100">
+      <section className="seo-about pt-100 pb-100">
         <div className="container narrow">
           <h2>{d.footerTitle}</h2>
           <p>{d.footerText}</p>

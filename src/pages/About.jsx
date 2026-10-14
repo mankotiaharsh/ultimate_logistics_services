@@ -36,26 +36,27 @@ export default function About() {
         btn={<Btn to="/contact-us" outline>Contact Us</Btn>}
       />
 
-      <section className="why-choose-section" style={{ backgroundImage: `url(${IMG.quotePort})` }}>
-        <div className="why-grid">
-          <div className="why-choose-img">
-            <TrackBox />
-          </div>
-          <div className="why-choose-text">
-            <SectionTitle
-              title="Why Businesses Choose Ultimate Logistics Services?"
-              text="You need a logistics partner who solves problems before they happen. We combine a modern fleet with real-time technology to guarantee safety. Here is why leading manufacturers across India trust us as the best transport company in India."
-              center={false}
-            />
-            <div className="why-list">
-              {WHY_CHOOSE.map((w) => (
-                <div className="why-item" key={w.title}>
-                  <Icon name={w.icon} className="why-icon" />
-                  <div><h3>{w.title}</h3><p>{w.text}</p></div>
+      <section className="why-choose-section about-why" style={{ backgroundImage: `url(${IMG.quotePort})` }}>
+        <div className="container">
+          <SectionTitle
+            tag="Why Choose Us"
+            title="Why Businesses Choose Ultimate Logistics Services"
+            text="You need a logistics partner who solves problems before they happen. We combine a modern fleet with real-time technology to guarantee safety. Here is why leading manufacturers across India trust us."
+            light
+          />
+          <div className="about-why-grid">
+            {WHY_CHOOSE.map((w, i) => (
+              <div className="about-why-card" key={w.title}>
+                <div className="about-why-head">
+                  <Icon name={w.icon} className="about-why-icon" />
+                  <span className="about-why-num">{String(i + 1).padStart(2, '0')}</span>
                 </div>
-              ))}
-            </div>
+                <h3>{w.title}</h3>
+                <p>{w.text}</p>
+              </div>
+            ))}
           </div>
+          <TrackBox inline />
         </div>
       </section>
 

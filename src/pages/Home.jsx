@@ -5,6 +5,63 @@ import { IMG, CONTACT, WHY_CHOOSE } from '../data/site';
 import Icon from '../components/Icon';
 import { AboutTabs, Btn, Faq, SectionTitle, TrackBox, useTitle } from '../components/Common';
 
+// Add more reviews here; the arrows and dots appear once there is more than one.
+const TESTIMONIALS = [
+  {
+    name: 'Rahul Kankran',
+    role: 'Customer',
+    text: 'I picked 3 of my lathe machines and found very supportive, humble and respectful... Must use in case u require any service.',
+  },
+];
+
+function Testimonials() {
+  const [i, setI] = useState(0);
+  const t = TESTIMONIALS[i];
+  const many = TESTIMONIALS.length > 1;
+  const go = (d) => setI((i + d + TESTIMONIALS.length) % TESTIMONIALS.length);
+  const initials = t.name.split(' ').map((w) => w[0]).slice(0, 2).join('');
+
+  return (
+    <section className="feedback-section" id="testimonial">
+      <div className="container feedback-grid">
+        <div className="feedback-intro">
+          <SectionTitle
+            tag="Testimonial"
+            title="What Our Customers Say"
+            text="Businesses across India trust us with their most valuable cargo. Here is what they say about working with Ultimate Logistics Services."
+            center={false}
+            light
+          />
+          <Btn to="/contact-us">Work With Us</Btn>
+        </div>
+
+        <div className="feedback-card-wrap">
+          <figure className="feedback-card" key={i}>
+            <FaQuoteLeft className="feedback-quote" />
+            <blockquote>{t.text}</blockquote>
+            <figcaption>
+              <span className="feedback-avatar" aria-hidden="true">{initials}</span>
+              <span>
+                <strong>{t.name}</strong>
+                <small>{t.role}</small>
+              </span>
+            </figcaption>
+          </figure>
+          {many && (
+            <div className="feedback-nav">
+              <button onClick={() => go(-1)} aria-label="Previous review"><FaChevronLeft /></button>
+              {TESTIMONIALS.map((_, n) => (
+                <button key={n} className={`dot ${n === i ? 'active' : ''}`} onClick={() => setI(n)} aria-label={`Review ${n + 1}`} />
+              ))}
+              <button onClick={() => go(1)} aria-label="Next review"><FaChevronRight /></button>
+            </div>
+          )}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 const SLIDES = [
   {
     bg: IMG.hero,
@@ -229,20 +286,11 @@ export default function Home() {
 
       <Faq items={FAQS} />
 
-      <section className="feedback-section" id="testimonial">
-        <div className="container">
-          <SectionTitle tag="Testimonial" title="What They Say" light />
-          <div className="feedback-item">
-            <FaQuoteLeft className="quote-icon" />
-            <p>I picked 3 of my lathe machines and found very supportive, humble and respectful... Must use in case u require any service.</p>
-            <img src={IMG.client} alt="Happy client of Ultimate Logistics Services" />
-            <h3>Rahul Kankran</h3>
-          </div>
-        </div>
-      </section>
+      <Testimonials />
 
       <section className="company-section">
         <div className="container">
+          <p className="company-title">Trusted by businesses across India</p>
           <div className="company-slider">
             {/* Logos are listed twice so the strip can loop without a gap. */}
             <div className="company-track">

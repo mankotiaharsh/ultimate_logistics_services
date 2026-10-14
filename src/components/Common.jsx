@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { FaPlus, FaMinus, FaSearchLocation } from 'react-icons/fa';
-import { IMG } from '../data/site';
+import { FaPlus, FaPhoneAlt, FaSearchLocation } from 'react-icons/fa';
+import { CONTACT, IMG } from '../data/site';
 
 // Sets the browser tab title for each page.
 export function useTitle(title) {
@@ -69,18 +69,38 @@ export function Faq({ items, tag = 'FAQ', title = 'Frequently Asked Questions' }
   const [open, setOpen] = useState(0);
   return (
     <section className="faq-section pt-100 pb-100">
-      <div className="container narrow">
-        <SectionTitle tag={tag} title={title} />
+      <div className="container faq-grid">
+        <div className="faq-intro">
+          <SectionTitle
+            tag={tag}
+            title={title}
+            text="Quick answers about our transport services, coverage, safety and pricing."
+            center={false}
+          />
+          <div className="faq-help">
+            <h3>Still have questions?</h3>
+            <p>Our team is happy to help with routes, rates and special cargo.</p>
+            <a href={`tel:${CONTACT.phones[0].tel}`} className="faq-help-phone"><FaPhoneAlt /> {CONTACT.phones[0].label}</a>
+            <Btn to="/contact-us">Contact Us</Btn>
+          </div>
+        </div>
+
         <div className="accordions">
-          {items.map(([q, a], i) => (
-            <div className="accordion-item" key={q}>
-              <button className={`accordion-title ${open === i ? 'active' : ''}`} onClick={() => setOpen(open === i ? -1 : i)}>
-                <h3>{q}</h3>
-                {open === i ? <FaMinus /> : <FaPlus />}
-              </button>
-              {open === i && <div className="accordion-content"><p>{a}</p></div>}
-            </div>
-          ))}
+          {items.map(([q, a], i) => {
+            const isOpen = open === i;
+            return (
+              <div className={`accordion-item ${isOpen ? 'open' : ''}`} key={q}>
+                <button className="accordion-title" aria-expanded={isOpen} onClick={() => setOpen(isOpen ? -1 : i)}>
+                  <span className="accordion-num">{String(i + 1).padStart(2, '0')}</span>
+                  <h3>{q}</h3>
+                  <span className="accordion-icon"><FaPlus /></span>
+                </button>
+                <div className="accordion-body">
+                  <div className="accordion-content"><p>{a}</p></div>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
@@ -88,16 +108,19 @@ export function Faq({ items, tag = 'FAQ', title = 'Frequently Asked Questions' }
 }
 
 // "Know Shipping Location" tracking box shown on the home and about pages.
-export function TrackBox() {
+// `inline` lays it out as a wide horizontal bar (about page).
+export function TrackBox({ inline = false }) {
   const [id, setId] = useState('');
   return (
-    <div className="track-box">
+    <div className={`track-box ${inline ? 'inline' : ''}`}>
       <FaSearchLocation className="track-icon" />
-      <h3>Know Shipping Location</h3>
-      <p>Track ID &amp; Order ID will be on your document file.</p>
+      <div className="track-text">
+        <h3>Know Shipping Location</h3>
+        <p>Track ID &amp; Order ID will be on your document file.</p>
+      </div>
       <form onSubmit={(e) => { e.preventDefault(); alert(id ? `Tracking for ${id}: please call 99147-08369 for live status.` : 'Please enter your Track ID'); }}>
         <input value={id} onChange={(e) => setId(e.target.value)} placeholder="Enter Track ID / Order ID" />
-        <button type="submit" className="default-btn purple">Track Now</button>
+        <button type="submit" className="default-btn navy">Track Now</button>
       </form>
     </div>
   );
