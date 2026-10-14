@@ -1,11 +1,13 @@
-# Rajinder Transport Service — React website
+# Ultimate Logistics Services — React website
 
-React (Vite) version of rajindertransports.com.
+Website for **Ultimate Logistics Services**, a road freight and transport company in Punjab, India. Built with React (Vite).
+
+**Registered office:** Ultimate Logistics Services (Prop. Rajinder Kumar Sharma), Mansar Mandir Road, Near Maini Di Chakki, Mukerian, District Hoshiarpur, Punjab 144211
 
 ## Run it on your computer
 
 1. Install Node.js 18 or newer from https://nodejs.org
-2. Unzip this folder, open a terminal inside it and run:
+2. Clone or download this repository, open a terminal inside it and run:
 
 ```bash
 npm install
