@@ -95,7 +95,7 @@ export default function DetailPage({ data: d }) {
               return (
                 <Link key={to} to={to} className="related-card">
                   <div className="related-img">
-                    <img src={img} alt={labelFor(to)} loading="lazy" />
+                    <span className="related-photo"><img src={img} alt={labelFor(to)} loading="lazy" /></span>
                     <span className="related-icon"><Icon name={icon} /></span>
                   </div>
                   <div className="related-body">
