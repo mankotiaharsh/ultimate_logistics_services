@@ -5,11 +5,11 @@ import logo from '../assets/images/logoo.png';
 
 export const IMG = {
   logo,
-  about: 'https://rajindertransports.com/assets/img/about.webp',
-  aboutPage: 'https://rajindertransports.com/assets/img/about.jpeg',
+  about: 'https://images.unsplash.com/photo-1521119989659-a83eee488004?q=80&w=1032&auto=format&fit=crop&ixlib=rb-4.1.0',
+  aboutPage: 'https://images.unsplash.com/photo-1521119989659-a83eee488004?q=80&w=1032&auto=format&fit=crop&ixlib=rb-4.1.0',
   hero: 'https://plus.unsplash.com/premium_photo-1681426710520-7c56c9f563d2?w=1920&auto=format&fit=crop&q=80&ixlib=rb-4.1.0',
   hero2: 'https://images.unsplash.com/photo-1591768793355-74d04bb6608f?w=1920&auto=format&fit=crop&q=80&ixlib=rb-4.1.0',
-  pageBg: 'https://rajindertransports.com/assets/img/page-bg/1.jpg',
+  pageBg: 'https://images.unsplash.com/photo-1590079105886-f0f884bf4437?q=80&w=1920&auto=format&fit=crop&ixlib=rb-4.1.0',
   quoteBg: 'https://rajindertransports.com/assets/img/quote-bg.jpg',
   quotePort: 'https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80',
   truck1: 'https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
@@ -34,7 +34,7 @@ export const CONTACT = {
     tradeName: 'Ultimate Logistics Services',
     address: 'Mansar Mandir Road, Near Maini Di Chakki, Mukerian, District Hoshiarpur, Punjab 144211',
   },
-  youtubeId: '9UnbArqOhLQ',
+  youtubeId: 'MOuRWrKAE2Y',
   social: {
     facebook: 'https://www.facebook.com/rtsldh/',
     instagram: 'https://www.instagram.com/rajindertransportservice/',
