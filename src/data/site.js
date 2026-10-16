@@ -19,7 +19,7 @@ export const IMG = {
 };
 
 export const CONTACT = {
-  email: 'info@rajindertransports.com',
+  email: 'info@ultimatelogisticsservices.com',
   phones: [
     { label: '99147-08369', tel: '9914708369' },
     { label: '81463-08369', tel: '8146308369' },
