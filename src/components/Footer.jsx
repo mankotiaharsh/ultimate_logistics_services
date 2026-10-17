@@ -67,13 +67,9 @@ export default function Footer() {
             </li>
             <li>
               <span className="fc-icon"><FaMapMarkerAlt /></span>
-              <span><strong>Head Office</strong>{CONTACT.address}</span>
-            </li>
-            <li>
-              <span className="fc-icon"><FaMapMarkerAlt /></span>
               <span>
-                <strong>Registered Office</strong>
-                {CONTACT.registered.tradeName} (Prop. {CONTACT.registered.legalName}), {CONTACT.registered.address}
+                <strong>Our Office</strong>
+                {CONTACT.registered.tradeName} (Prop. {CONTACT.registered.legalName}), {CONTACT.address}
               </span>
             </li>
           </ul>

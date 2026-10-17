@@ -18,7 +18,7 @@ const RELATED_INFO = {
   '/door-to-door-transport': [small(IMG.hero2), 'map', 'Pickup from your doorstep, delivery to the receiver.'],
   '/pan-india-transport-service': [small(IMG.quotePort), 'gps', 'Road freight to every state, city and pincode in India.'],
   '/b2b-logistics-company-india': [IMG.truck3, 'b2b', 'Freight for manufacturers and traders with GST-ready billing.'],
-  '/transport-services-in-ludhiana': [IMG.truck1, 'steel', 'Local and outstation transport for Ludhiana businesses.'],
+  '/transport-services-in-mukerian': [IMG.truck1, 'steel', 'Local and outstation transport for Mukerian and Hoshiarpur businesses.'],
 };
 
 // Shared layout for every service page and every route page.

@@ -23,11 +23,10 @@ export const CONTACT = {
   phones: [
     { label: '99147-08369', tel: '9914708369' },
     { label: '81463-08369', tel: '8146308369' },
-    { label: '0161 507 8369', tel: '01615078369' },
   ],
-  address: '1st Floor, SCO 74, TRANSPORT NAGAR, Ludhiana, Punjab 141003',
+  address: 'Mansar Mandir Road, Near Maini Di Chakki, Mukerian, District Hoshiarpur, Punjab 144211',
   mapEmbed:
-    'https://maps.google.com/maps?q=1st%20Floor%2C%20SCO%2074%2C%20TRANSPORT%20NAGAR%2C%20Ludhiana%2C%20Punjab%20141003&t=m&z=12&output=embed&iwloc=near',
+    'https://maps.google.com/maps?q=Mansar%20Mandir%20Road%2C%20Mukerian%2C%20Hoshiarpur%2C%20Punjab%20144211&t=m&z=14&output=embed&iwloc=near',
   // Registered business details (as per GST registration).
   registered: {
     legalName: 'Rajinder Kumar Sharma',
@@ -46,7 +45,7 @@ export const SERVICE_LINKS = [
   { label: 'Full Truck Load', to: '/full-truck-load' },
   { label: 'Part Truck Load', to: '/part-truck-load' },
   { label: 'Door to Door Transport', to: '/door-to-door-transport' },
-  { label: 'Ludhiana Transport', to: '/transport-services-in-ludhiana' },
+  { label: 'Mukerian Transport', to: '/transport-services-in-mukerian' },
   { label: 'Pan India Service', to: '/pan-india-transport-service' },
   { label: 'B2B Logistics', to: '/b2b-logistics-company-india' },
 ];
@@ -54,13 +53,13 @@ export const SERVICE_LINKS = [
 export const ROUTE_LINKS = [
   { label: 'Delhi Transport', to: '/routes/delhi' },
   { label: 'Noida Transport', to: '/routes/noida' },
-  { label: 'Delhi to Ludhiana', to: '/routes/delhi-to-ludhiana-transport' },
-  { label: 'Ludhiana to Mumbai', to: '/routes/ludhiana-to-mumbai-transport' },
-  { label: 'Ludhiana to Bangalore', to: '/routes/ludhiana-to-bangalore-transport' },
-  { label: 'Ludhiana to Delhi', to: '/routes/ludhiana-to-delhi-transport' },
-  { label: 'Ludhiana to Chennai', to: '/routes/ludhiana-to-chennai-transport' },
-  { label: 'Ludhiana to Hyderabad', to: '/routes/ludhiana-to-hyderabad-transport' },
-  { label: 'Ludhiana to Pune', to: '/routes/ludhiana-to-pune-transport' },
+  { label: 'Delhi to Mukerian', to: '/routes/delhi-to-mukerian-transport' },
+  { label: 'Mukerian to Mumbai', to: '/routes/mukerian-to-mumbai-transport' },
+  { label: 'Mukerian to Bangalore', to: '/routes/mukerian-to-bangalore-transport' },
+  { label: 'Mukerian to Delhi', to: '/routes/mukerian-to-delhi-transport' },
+  { label: 'Mukerian to Chennai', to: '/routes/mukerian-to-chennai-transport' },
+  { label: 'Mukerian to Hyderabad', to: '/routes/mukerian-to-hyderabad-transport' },
+  { label: 'Mukerian to Pune', to: '/routes/mukerian-to-pune-transport' },
 ];
 
 export const WHY_CHOOSE = [

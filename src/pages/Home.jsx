@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { FaPlay, FaQuoteLeft, FaChevronLeft, FaChevronRight, FaStar, FaNewspaper } from 'react-icons/fa';
 import { IMG, CONTACT, WHY_CHOOSE } from '../data/site';
 import Icon from '../components/Icon';
+import FleetGallery from '../components/FleetGallery';
 import { AboutTabs, Btn, Faq, SectionTitle, TrackBox, useTitle } from '../components/Common';
 
 // Add more reviews here; the arrows and dots appear once there is more than one.
@@ -92,7 +93,7 @@ const INDUSTRIES_LEFT = [['textile', 'Textiles And Garments'], ['auto', 'Automot
 const INDUSTRIES_RIGHT = [['steel', 'Iron, Steel, and Construction'], ['pharma', 'Pharmaceuticals'], ['electronics', 'Electronics'], ['paper', 'Paper And Packaging']];
 
 const FAQS = [
-  ['Which locations does Ultimate Logistics Services cover in India?', 'We deliver to over 19,000 pincodes across all 28 states, covering major metros like Delhi, Mumbai, Bangalore, Chennai, and Hyderabad as well as remote villages. Established in 2002 and based in Ludhiana, Punjab, we ensure your goods reach any destination in India safely and on time.'],
+  ['Which locations does Ultimate Logistics Services cover in India?', 'We deliver to over 19,000 pincodes across all 28 states, covering major metros like Delhi, Mumbai, Bangalore, Chennai, and Hyderabad as well as remote villages. Established in 2002 and based in Mukerian, Punjab, we ensure your goods reach any destination in India safely and on time.'],
   ['Do you offer insurance for goods during transit?', 'Yes, Ultimate Logistics Services provides complete transit insurance for all B2B shipments. The coverage protects your cargo against accidents, theft, or damage during road transport. Insurance details are shared transparently at the time of booking so you always know your goods are financially protected.'],
   ['Can you transport perishable or fragile commercial goods?', 'Absolutely. We specialise in handling sensitive commercial cargo including pharmaceuticals, electronics, FMCG products, and fragile industrial equipment. Our fleet uses sealed containers and experienced drivers who follow strict handling protocols, ensuring safe delivery across India without damage or spoilage.'],
   ['How do I get a price quote for my cargo?', 'Simply fill out the Request a Quote form on our website or call us at 99147-08369 for an instant rate. Share your pickup location, destination, load type, and approximate weight — we will provide a transparent, route-specific price with no hidden charges, typically within a few hours.'],
@@ -206,6 +207,9 @@ export default function Home() {
         </div>
       </section>
 
+      <FleetGallery />
+
+      {/* "Why Businesses Choose" section with tracking box, hidden for now. Remove this comment wrapper to show it again.
       <section className="why-choose-section" style={{ backgroundImage: `url(${IMG.quotePort})` }}>
         <div className="why-grid">
           <div className="why-choose-img">
@@ -228,6 +232,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      */}
 
       <section className="industries-section pt-100 pb-70">
         <div className="container">
@@ -268,9 +273,9 @@ export default function Home() {
             </div>
             <div className="pill-tags">
               <Link to="/routes/delhi">Delhi</Link>
-              <Link to="/routes/ludhiana-to-mumbai-transport">Mumbai</Link>
+              <Link to="/routes/mukerian-to-mumbai-transport">Mumbai</Link>
               <Link to="/routes/noida">Noida</Link>
-              <Link to="/routes/ludhiana-to-bangalore-transport">Bangalore</Link>
+              <Link to="/routes/mukerian-to-bangalore-transport">Bangalore</Link>
             </div>
             <a href="#testimonial" className="glass-block">
               <h3><FaStar /> Trusted By India's Top Businesses</h3>

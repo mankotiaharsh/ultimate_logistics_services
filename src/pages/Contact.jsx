@@ -4,7 +4,7 @@ import { CONTACT } from '../data/site';
 import { PageTitle, useTitle } from '../components/Common';
 
 export default function Contact() {
-  useTitle('Contact Ultimate Logistics Services | Ludhiana, Punjab');
+  useTitle('Contact Ultimate Logistics Services | Mukerian, Punjab');
   const [form, setForm] = useState({ name: '', email: '', phone: '', subject: '', message: '' });
   const [sent, setSent] = useState(false);
   const set = (k) => (e) => setForm({ ...form, [k]: e.target.value });
@@ -34,10 +34,10 @@ export default function Contact() {
           </div>
           <div className="contact-card">
             <FaMapMarkerAlt className="cc-icon" />
-            <p><strong>Head Office:</strong> {CONTACT.address}</p>
             <p>
-              <strong>Registered Office:</strong> {CONTACT.registered.tradeName} (Prop. {CONTACT.registered.legalName}),{' '}
-              {CONTACT.registered.address}
+              <strong>{CONTACT.registered.tradeName}</strong><br />
+              Prop. {CONTACT.registered.legalName}<br />
+              {CONTACT.address}
             </p>
           </div>
         </div>
