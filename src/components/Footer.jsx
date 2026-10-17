@@ -15,7 +15,9 @@ export default function Footer() {
           </div>
           <div className="footer-cta-actions">
             <a href={`tel:${mainPhone.tel}`} className="footer-cta-phone"><FaPhoneAlt /> {mainPhone.label}</a>
+            {/* "Get a Quote" button, hidden for now. Remove this comment wrapper to show it again.
             <Link to="/contact-us" className="default-btn navy">Get a Quote</Link>
+            */}
           </div>
         </div>
       </div>
@@ -27,11 +29,13 @@ export default function Footer() {
             Ultimate Logistics Services moves goods for manufacturers and traders across India with
             full truck load, part load and door-to-door transport.
           </p>
+          {/* Social media icons, hidden for now. Remove this comment wrapper to show them again.
           <div className="footer-social">
             <a href={CONTACT.social.facebook} target="_blank" rel="noreferrer" aria-label="Facebook"><FaFacebookF /></a>
             <a href={CONTACT.social.instagram} target="_blank" rel="noreferrer" aria-label="Instagram"><FaInstagram /></a>
             <a href={CONTACT.social.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn"><FaLinkedinIn /></a>
           </div>
+          */}
         </div>
 
         <div className="footer-widget">
@@ -78,7 +82,6 @@ export default function Footer() {
 
       <div className="copyright-area">
         <div className="container copyright-inner">
-          <p>Copyright 2020-2021 Ultimate Logistics Services. All rights reserved. Powered by Quince Digital.</p>
           <nav>
             <Link to="/about-us">About</Link>
             <Link to="/blogs">Blog</Link>

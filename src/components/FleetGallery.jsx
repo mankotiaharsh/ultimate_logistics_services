@@ -86,7 +86,9 @@ export default function FleetGallery() {
             </ul>
           </div>
 
+          {/* "Get a Quote" button, hidden for now. Remove this comment wrapper to show it again.
           <Btn to="/contact-us">Get a Quote</Btn>
+          */}
         </div>
 
         <div className="showcase-media">

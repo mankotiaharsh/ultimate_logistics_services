@@ -41,13 +41,23 @@ export function Btn({ to, href, children, outline }) {
 }
 
 // About block with About / Our Mission / Our Goal tabs (used on home, about, service and route pages).
-export function AboutTabs({ img, tag = 'About Us', title, about, mission, goal, btn }) {
+// `compactImg` shows the photo smaller (used for the portrait photo on the home page).
+// `caption` ({ name, role }) adds a name badge over the bottom of the photo.
+export function AboutTabs({ img, tag = 'About Us', title, about, mission, goal, btn, compactImg = false, caption }) {
   const [tab, setTab] = useState('about');
   const content = { about, mission, goal }[tab] || [];
   return (
     <section className="about-section pt-100">
       <div className="container two-col">
-        <div className="about-img"><img src={img} alt={title} /></div>
+        <div className={`about-img ${compactImg ? 'compact' : ''}`}>
+          <img src={img} alt={caption ? `${caption.name}, ${caption.role}` : title} />
+          {caption && (
+            <div className="about-caption">
+              <strong>{caption.name}</strong>
+              <span>{caption.role}</span>
+            </div>
+          )}
+        </div>
         <div className="about-text">
           <SectionTitle tag={tag} title={title} center={false} />
           <div className="tabs">
@@ -118,7 +128,7 @@ export function TrackBox({ inline = false }) {
         <h3>Know Shipping Location</h3>
         <p>Track ID &amp; Order ID will be on your document file.</p>
       </div>
-      <form onSubmit={(e) => { e.preventDefault(); alert(id ? `Tracking for ${id}: please call 99147-08369 for live status.` : 'Please enter your Track ID'); }}>
+      <form onSubmit={(e) => { e.preventDefault(); alert(id ? `Tracking for ${id}: please call 77105 89837 for live status.` : 'Please enter your Track ID'); }}>
         <input value={id} onChange={(e) => setId(e.target.value)} placeholder="Enter Track ID / Order ID" />
         <button type="submit" className="default-btn navy">Track Now</button>
       </form>

@@ -1,22 +1,25 @@
-import { useState } from 'react';
-import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
+import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaCheckCircle } from 'react-icons/fa';
 import { CONTACT } from '../data/site';
 import { PageTitle, useTitle } from '../components/Common';
 
+// Details we ask visitors to include, so a quote can be given from the first message.
+const DETAILS = [
+  'Pickup location (city / PIN code)',
+  'Delivery location (city / PIN code)',
+  'Type of goods',
+  'Approximate weight or size of the load',
+  'Preferred pickup date',
+  'Your name and phone number',
+];
+
+// Opens the visitor's email app with the details above as a ready-to-fill template.
+const EMAIL_TEMPLATE = `mailto:${CONTACT.email}?subject=${encodeURIComponent('Transport quote request')}&body=${encodeURIComponent(
+  `Hello Ultimate Logistics Services,\n\nI would like a quote for the following shipment:\n\n${DETAILS.map((d) => `${d}: `).join('\n')}\n\nThank you.`
+)}`;
+
 export default function Contact() {
   useTitle('Contact Ultimate Logistics Services | Mukerian, Punjab');
-  const [form, setForm] = useState({ name: '', email: '', phone: '', subject: '', message: '' });
-  const [sent, setSent] = useState(false);
-  const set = (k) => (e) => setForm({ ...form, [k]: e.target.value });
-
-  // No backend yet: this opens the visitor's email app with the message filled in.
-  // Swap this for a call to your own API or a form service (e.g. Formspree) later.
-  const submit = (e) => {
-    e.preventDefault();
-    const body = `Name: ${form.name}\nEmail: ${form.email}\nPhone: ${form.phone}\n\n${form.message}`;
-    window.location.href = `mailto:${CONTACT.email}?subject=${encodeURIComponent(form.subject || 'Website enquiry')}&body=${encodeURIComponent(body)}`;
-    setSent(true);
-  };
+  const phone = CONTACT.phones[0];
 
   return (
     <>
@@ -46,20 +49,42 @@ export default function Contact() {
       <section className="contact-section pb-100">
         <div className="container two-col">
           <div className="contact-area">
-            <h2>Ask Any Question</h2>
-            <form onSubmit={submit}>
-              <div className="form-row">
-                <input required placeholder="Your Name" value={form.name} onChange={set('name')} />
-                <input required type="email" placeholder="Your Email" value={form.email} onChange={set('email')} />
-              </div>
-              <div className="form-row">
-                <input required type="tel" placeholder="Phone Number" value={form.phone} onChange={set('phone')} />
-                <input placeholder="Subject" value={form.subject} onChange={set('subject')} />
-              </div>
-              <textarea required rows={6} placeholder="Your Message" value={form.message} onChange={set('message')} />
-              <button type="submit" className="default-btn">Send Message</button>
-              {sent && <p className="form-note">Your email app should now open with the message ready to send.</p>}
-            </form>
+            <h2>How to Send Us Your Query</h2>
+            <p className="contact-intro">
+              Have a shipment to move or a question about our services? Call or email us directly, our team will get back to you with answers and a clear quote.
+            </p>
+
+            <div className="contact-options">
+              <a href={`tel:${phone.tel}`} className="contact-option">
+                <span className="co-icon"><FaPhoneAlt /></span>
+                <span>
+                  <small>Call us</small>
+                  <strong>{phone.label}</strong>
+                  <em>Fastest way to get a quote</em>
+                </span>
+              </a>
+              <a href={EMAIL_TEMPLATE} className="contact-option">
+                <span className="co-icon"><FaEnvelope /></span>
+                <span>
+                  <small>Email us</small>
+                  <strong>{CONTACT.email}</strong>
+                  <em>Opens your email with a ready template</em>
+                </span>
+              </a>
+            </div>
+
+            <ol className="contact-steps">
+              <li><strong>Choose call or email</strong> using the options above.</li>
+              <li><strong>Share your shipment details</strong> from the list below.</li>
+              <li><strong>Get your quote</strong>: we reply with a transparent price and pickup plan.</li>
+            </ol>
+
+            <div className="contact-checklist">
+              <h3>Please include these details</h3>
+              <ul>
+                {DETAILS.map((d) => <li key={d}><FaCheckCircle /> {d}</li>)}
+              </ul>
+            </div>
           </div>
           <div className="map-wrap">
             <iframe src={CONTACT.mapEmbed} title="Ultimate Logistics Services location" loading="lazy" />

@@ -2,11 +2,12 @@
 // Edit this one file to change phone numbers, email, address or menu links.
 
 import logo from '../assets/images/logoo.png';
+import owner from '../assets/images/owner.webp';
 
 export const IMG = {
   logo,
-  about: 'https://images.unsplash.com/photo-1521119989659-a83eee488004?q=80&w=1032&auto=format&fit=crop&ixlib=rb-4.1.0',
-  aboutPage: 'https://images.unsplash.com/photo-1521119989659-a83eee488004?q=80&w=1032&auto=format&fit=crop&ixlib=rb-4.1.0',
+  about: owner, // Home page 'About Us' photo (optimised copy of owner.png)
+  aboutPage: owner, // About page 'About Us' photo (same owner photo)
   hero: 'https://plus.unsplash.com/premium_photo-1681426710520-7c56c9f563d2?w=1920&auto=format&fit=crop&q=80&ixlib=rb-4.1.0',
   hero2: 'https://images.unsplash.com/photo-1591768793355-74d04bb6608f?w=1920&auto=format&fit=crop&q=80&ixlib=rb-4.1.0',
   pageBg: 'https://images.unsplash.com/photo-1590079105886-f0f884bf4437?q=80&w=1920&auto=format&fit=crop&ixlib=rb-4.1.0',
@@ -21,8 +22,7 @@ export const IMG = {
 export const CONTACT = {
   email: 'info@ultimatelogisticsservices.com',
   phones: [
-    { label: '99147-08369', tel: '9914708369' },
-    { label: '81463-08369', tel: '8146308369' },
+    { label: '77105 89837', tel: '+917710589837' },
   ],
   address: 'Mansar Mandir Road, Near Maini Di Chakki, Mukerian, District Hoshiarpur, Punjab 144211',
   mapEmbed:

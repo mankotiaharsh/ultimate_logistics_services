@@ -42,11 +42,13 @@ export default function Header() {
             <li><a href={`mailto:${CONTACT.email}`}><FaEnvelope /> {CONTACT.email}</a></li>
             <li><a href={`tel:${CONTACT.phones[0].tel}`}><FaPhoneAlt /> {CONTACT.phones[0].label}</a></li>
           </ul>
+          {/* Social media icons, hidden for now. Remove this comment wrapper to show them again.
           <ul className="topbar-social">
             <li><a href={CONTACT.social.facebook} target="_blank" rel="noreferrer" aria-label="Facebook"><FaFacebookF /></a></li>
             <li><a href={CONTACT.social.instagram} target="_blank" rel="noreferrer" aria-label="Instagram"><FaInstagram /></a></li>
             <li><a href={CONTACT.social.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn"><FaLinkedinIn /></a></li>
           </ul>
+          */}
         </div>
       </div>
 
@@ -64,7 +66,9 @@ export default function Header() {
             <li className="nav-item"><NavLink to="/our-team" className="nav-link" onClick={close}>Our Team</NavLink></li>
             <Dropdown label="Services" items={SERVICE_LINKS} onNavigate={close} />
             <Dropdown label="Routes" items={ROUTE_LINKS} onNavigate={close} />
+            {/* Blog link, hidden for now. Remove this comment wrapper to show it again.
             <li className="nav-item"><NavLink to="/blogs" className="nav-link" onClick={close}>Blog</NavLink></li>
+            */}
             <li className="nav-item"><NavLink to="/contact-us" className="nav-link" onClick={close}>Contact Us</NavLink></li>
           </ul>
         </div>

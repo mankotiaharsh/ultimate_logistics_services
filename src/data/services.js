@@ -40,7 +40,7 @@ export const SERVICES = {
     ],
     related: ['/part-truck-load', '/door-to-door-transport', '/pan-india-transport-service', '/b2b-logistics-company-india'],
     footerTitle: 'About Full Truck Load Transport — Ultimate Logistics Services',
-    footerText: 'Ultimate Logistics Services is a B2B road freight company established in 2002, headquartered in Mukerian, District Hoshiarpur, Punjab (PIN 144211). Our Full Truck Load (FTL) service provides exclusive vehicle allocation for single-client shipments across all 28 states and union territories of India, covering over 19,000 pincodes. We serve industries including textiles, automotive components, FMCG, pharmaceuticals, steel, industrial machinery, and consumer electronics. Key FTL corridors include Delhi–Mukerian, Mumbai–Mukerian, Chennai–Delhi, Kolkata–Ahmedabad, Bangalore–Hyderabad, and Mukerian–Pune. All FTL shipments include live GPS tracking, transit insurance, and direct point-to-point delivery with no intermediate depot stops. For Full Truck Load bookings or freight quotes, contact us at +91-99147-08369.',
+    footerText: 'Ultimate Logistics Services is a B2B road freight company established in 2018, headquartered in Mukerian, District Hoshiarpur, Punjab (PIN 144211). Our Full Truck Load (FTL) service provides exclusive vehicle allocation for single-client shipments across all 28 states and union territories of India, covering over 19,000 pincodes. We serve industries including textiles, automotive components, FMCG, pharmaceuticals, steel, industrial machinery, and consumer electronics. Key FTL corridors include Delhi–Mukerian, Mumbai–Mukerian, Chennai–Delhi, Kolkata–Ahmedabad, Bangalore–Hyderabad, and Mukerian–Pune. All FTL shipments include live GPS tracking, transit insurance, and direct point-to-point delivery with no intermediate depot stops. For Full Truck Load bookings or freight quotes, contact us at +91 77105 89837.',
   },
 
   'part-truck-load': {
@@ -87,7 +87,7 @@ export const SERVICES = {
     ],
     related: ['/full-truck-load', '/door-to-door-transport', '/pan-india-transport-service', '/b2b-logistics-company-india'],
     footerTitle: 'About Part Truck Load Transport — Ultimate Logistics Services',
-    footerText: 'Ultimate Logistics Services offers Part Truck Load (PTL) freight across India, allowing businesses to share truck space and pay only for the capacity they use. Founded in 2002 and based in Mukerian, Punjab, we provide PTL services covering major industrial cities including Delhi, Mumbai, Bangalore, Chennai, Hyderabad, Ahmedabad, Kolkata, Pune, Jaipur, and Surat, as well as tier-2 manufacturing hubs across all 28 states. Our PTL network is particularly suited for manufacturers across Punjab, pharmaceutical distributors in Baddi, hosiery businesses in Tiruppur, and FMCG distributors operating nationally. Each consignment is individually labeled, segregated, and GPS-monitored throughout transit. For PTL freight quotes, call +91-99147-08369 or write to info@ultimatelogisticsservices.com.',
+    footerText: 'Ultimate Logistics Services offers Part Truck Load (PTL) freight across India, allowing businesses to share truck space and pay only for the capacity they use. Founded in 2018 and based in Mukerian, Punjab, we provide PTL services covering major industrial cities including Delhi, Mumbai, Bangalore, Chennai, Hyderabad, Ahmedabad, Kolkata, Pune, Jaipur, and Surat, as well as tier-2 manufacturing hubs across all 28 states. Our PTL network is particularly suited for manufacturers across Punjab, pharmaceutical distributors in Baddi, hosiery businesses in Tiruppur, and FMCG distributors operating nationally. Each consignment is individually labeled, segregated, and GPS-monitored throughout transit. For PTL freight quotes, call +91 77105 89837 or write to info@ultimatelogisticsservices.com.',
   },
 
   'door-to-door-transport': {
@@ -135,7 +135,7 @@ export const SERVICES = {
     ],
     related: ['/full-truck-load', '/part-truck-load', '/pan-india-transport-service', '/b2b-logistics-company-india'],
     footerTitle: 'About Door to Door Transport — Ultimate Logistics Services',
-    footerText: "Ultimate Logistics Services provides end-to-end door-to-door transport across India, handling cargo pickup from the sender's factory, warehouse, or office and delivering directly to the consignee's premises without intermediate depot handling. Operating since 2002 from Mukerian, Punjab, our door-to-door logistics cover over 19,000 pincodes in states including Punjab, Haryana, Delhi NCR, Uttar Pradesh, Rajasthan, Maharashtra, Gujarat, Karnataka, Tamil Nadu, Telangana, West Bengal, and Madhya Pradesh. This service eliminates the need for clients to arrange last-mile logistics independently, making it ideal for e-commerce vendors, industrial manufacturers, and import-export businesses. All vehicles are GPS-enabled for real-time tracking, and transit insurance is available on every shipment. Contact: +91-99147-08369.",
+    footerText: "Ultimate Logistics Services provides end-to-end door-to-door transport across India, handling cargo pickup from the sender's factory, warehouse, or office and delivering directly to the consignee's premises without intermediate depot handling. Operating since 2018 from Mukerian, Punjab, our door-to-door logistics cover over 19,000 pincodes in states including Punjab, Haryana, Delhi NCR, Uttar Pradesh, Rajasthan, Maharashtra, Gujarat, Karnataka, Tamil Nadu, Telangana, West Bengal, and Madhya Pradesh. This service eliminates the need for clients to arrange last-mile logistics independently, making it ideal for e-commerce vendors, industrial manufacturers, and import-export businesses. All vehicles are GPS-enabled for real-time tracking, and transit insurance is available on every shipment. Contact: +91 77105 89837.",
   },
 
   // NOTE: the three pages below were rebuilt from a summary of the live pages.
@@ -176,7 +176,7 @@ export const SERVICES = {
     ],
     related: ['/full-truck-load', '/part-truck-load', '/door-to-door-transport', '/pan-india-transport-service'],
     footerTitle: 'About Transport Services in Mukerian — Ultimate Logistics Services',
-    footerText: 'Ultimate Logistics Services is a Mukerian-based road freight company operating since 2002. We serve businesses across Mukerian, the Hoshiarpur district and Punjab, and provide outstation transport across India. Our FTL, PTL, and door-to-door services come with GPS tracking and transit insurance. Office: Mansar Mandir Road, Mukerian, District Hoshiarpur, Punjab (PIN 144211). Call +91-99147-08369.',
+    footerText: 'Ultimate Logistics Services is a Mukerian-based road freight company operating since 2018. We serve businesses across Mukerian, the Hoshiarpur district and Punjab, and provide outstation transport across India. Our FTL, PTL, and door-to-door services come with GPS tracking and transit insurance. Office: Mansar Mandir Road, Mukerian, District Hoshiarpur, Punjab (PIN 144211). Call +91 77105 89837.',
   },
 
   'pan-india-transport-service': {
@@ -215,7 +215,7 @@ export const SERVICES = {
     ],
     related: ['/full-truck-load', '/part-truck-load', '/door-to-door-transport', '/b2b-logistics-company-india'],
     footerTitle: 'About Pan India Transport Service — Ultimate Logistics Services',
-    footerText: 'Ultimate Logistics Services, founded in Mukerian, Punjab in 2002, runs a road freight network covering all 28 states and 8 union territories, serving over 19,000 pincodes. We handle inter-state and intra-state cargo for manufacturers, wholesalers, and distributors in textiles, automotive, steel, chemicals, FMCG, pharmaceuticals, and agri-commodities. Major origin hubs include Mukerian, Delhi, Noida, Mumbai, Pune, Ahmedabad, and Bangalore, with delivery to Tier-2 and Tier-3 industrial clusters. Contact: +91-99147-08369.',
+    footerText: 'Ultimate Logistics Services, founded in Mukerian, Punjab in 2018, runs a road freight network covering all 28 states and 8 union territories, serving over 19,000 pincodes. We handle inter-state and intra-state cargo for manufacturers, wholesalers, and distributors in textiles, automotive, steel, chemicals, FMCG, pharmaceuticals, and agri-commodities. Major origin hubs include Mukerian, Delhi, Noida, Mumbai, Pune, Ahmedabad, and Bangalore, with delivery to Tier-2 and Tier-3 industrial clusters. Contact: +91 77105 89837.',
   },
 
   'b2b-logistics-company-india': {
@@ -255,6 +255,6 @@ export const SERVICES = {
     ],
     related: ['/full-truck-load', '/part-truck-load', '/door-to-door-transport', '/pan-india-transport-service'],
     footerTitle: 'About B2B Logistics — Ultimate Logistics Services',
-    footerText: 'Ultimate Logistics Services is a Mukerian, Punjab-based company established in 2002, serving business clients with road freight across India. Our services include FTL, PTL, and door-to-door delivery with GPS tracking and transit insurance, on major corridors such as NH-44, NH-48, and NH-19, for industries including textiles, automotive, pharmaceuticals, FMCG, steel, and chemicals. Call +91-99147-08369.',
+    footerText: 'Ultimate Logistics Services is a Mukerian, Punjab-based company established in 2018, serving business clients with road freight across India. Our services include FTL, PTL, and door-to-door delivery with GPS tracking and transit insurance, on major corridors such as NH-44, NH-48, and NH-19, for industries including textiles, automotive, pharmaceuticals, FMCG, steel, and chemicals. Call +91 77105 89837.',
   },
 };

@@ -9,7 +9,7 @@ import { AboutTabs, Btn, Faq, SectionTitle, TrackBox, useTitle } from '../compon
 // Add more reviews here; the arrows and dots appear once there is more than one.
 const TESTIMONIALS = [
   {
-    name: 'Rahul Kankran',
+    name: 'Harsh Mankotia',
     role: 'Customer',
     text: 'I picked 3 of my lathe machines and found very supportive, humble and respectful... Must use in case u require any service.',
   },
@@ -77,7 +77,7 @@ const SLIDES = [
 ];
 
 const FEATURES = [
-  ['24+', 'Years of Experience', 'Serving Indian businesses with honest and reliable logistics since 2002.', 'truck'],
+  ['8+', 'Years of Experience', 'Serving Indian businesses with honest and reliable logistics for over 8 years.', 'truck'],
   ['28', 'States Delivery', 'We deliver your goods all over India, to every city and village, daily.', 'map'],
   ['500+', 'Happy Clients', 'Trusted by small businesses and large factories across the country.', 'b2b'],
   ['100%', 'Safe Delivery', 'Your inventory arrives safely and intact, exactly as you packed it.', 'shield'],
@@ -93,10 +93,10 @@ const INDUSTRIES_LEFT = [['textile', 'Textiles And Garments'], ['auto', 'Automot
 const INDUSTRIES_RIGHT = [['steel', 'Iron, Steel, and Construction'], ['pharma', 'Pharmaceuticals'], ['electronics', 'Electronics'], ['paper', 'Paper And Packaging']];
 
 const FAQS = [
-  ['Which locations does Ultimate Logistics Services cover in India?', 'We deliver to over 19,000 pincodes across all 28 states, covering major metros like Delhi, Mumbai, Bangalore, Chennai, and Hyderabad as well as remote villages. Established in 2002 and based in Mukerian, Punjab, we ensure your goods reach any destination in India safely and on time.'],
+  ['Which locations does Ultimate Logistics Services cover in India?', 'We deliver to over 19,000 pincodes across all 28 states, covering major metros like Delhi, Mumbai, Bangalore, Chennai, and Hyderabad as well as remote villages. Established in 2018 and based in Mukerian, Punjab, we ensure your goods reach any destination in India safely and on time.'],
   ['Do you offer insurance for goods during transit?', 'Yes, Ultimate Logistics Services provides complete transit insurance for all B2B shipments. The coverage protects your cargo against accidents, theft, or damage during road transport. Insurance details are shared transparently at the time of booking so you always know your goods are financially protected.'],
   ['Can you transport perishable or fragile commercial goods?', 'Absolutely. We specialise in handling sensitive commercial cargo including pharmaceuticals, electronics, FMCG products, and fragile industrial equipment. Our fleet uses sealed containers and experienced drivers who follow strict handling protocols, ensuring safe delivery across India without damage or spoilage.'],
-  ['How do I get a price quote for my cargo?', 'Simply fill out the Request a Quote form on our website or call us at 99147-08369 for an instant rate. Share your pickup location, destination, load type, and approximate weight — we will provide a transparent, route-specific price with no hidden charges, typically within a few hours.'],
+  ['How do I get a price quote for my cargo?', 'Simply call us at 77105 89837 or email info@ultimatelogisticsservices.com for a quick rate. Share your pickup location, destination, load type, and approximate weight — we will provide a transparent, route-specific price with no hidden charges, typically within a few hours.'],
 ];
 
 const CLIENT_LOGOS = [
@@ -121,7 +121,9 @@ function Hero() {
         <p>{s.text}</p>
         <div className="banner-btn">
           <Btn to="/contact-us">Get a Free Call</Btn>
+          {/* "Watch Video" button, hidden for now. Remove this comment wrapper to show it again.
           <Btn href={`https://www.youtube.com/watch?v=${CONTACT.youtubeId}`}><FaPlay /> Watch Video</Btn>
+          */}
         </div>
       </div>
       <button className="slide-nav prev" onClick={() => setI((i - 1 + SLIDES.length) % SLIDES.length)} aria-label="Previous"><FaChevronLeft /></button>
@@ -151,6 +153,8 @@ export default function Home() {
 
       <AboutTabs
         img={IMG.about}
+        compactImg
+        caption={{ name: CONTACT.registered.legalName, role: 'Proprietor' }}
         title="We Provide Fast & Safe Service to Our Customer"
         about={[
           'Ultimate Logistics Services began with a single truck and a clear promise: deliver every shipment safely and on time. Today, with a modern fleet and a dedicated team, we are one of the most trusted logistics companies in India, and we still follow that same commitment.',
@@ -167,6 +171,7 @@ export default function Home() {
         btn={<Btn to="/about-us" outline>Know More</Btn>}
       />
 
+      {/* "Our Fleet" video section, hidden for now. Remove this comment wrapper to show it again.
       <section className="fleet-section pt-100">
         <div className="container two-col">
           <div className="video-wrap">
@@ -187,6 +192,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      */}
 
       <section className="transport-section pt-100 pb-70">
         <div className="container">
