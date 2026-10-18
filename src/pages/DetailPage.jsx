@@ -26,7 +26,7 @@ export default function DetailPage({ data: d }) {
   useTitle(d.seoTitle);
   return (
     <>
-      <PageTitle title={d.title} crumb={d.crumb} />
+      <PageTitle title={d.title} crumb={d.crumb} tagline={d.tagline} />
 
       <section className="transport-section pt-100 pb-70">
         <div className="container">

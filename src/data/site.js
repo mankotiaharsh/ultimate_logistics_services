@@ -51,15 +51,14 @@ export const SERVICE_LINKS = [
 ];
 
 export const ROUTE_LINKS = [
-  { label: 'Delhi Transport', to: '/routes/delhi' },
-  { label: 'Noida Transport', to: '/routes/noida' },
-  { label: 'Delhi to Mukerian', to: '/routes/delhi-to-mukerian-transport' },
-  { label: 'Mukerian to Mumbai', to: '/routes/mukerian-to-mumbai-transport' },
-  { label: 'Mukerian to Bangalore', to: '/routes/mukerian-to-bangalore-transport' },
-  { label: 'Mukerian to Delhi', to: '/routes/mukerian-to-delhi-transport' },
-  { label: 'Mukerian to Chennai', to: '/routes/mukerian-to-chennai-transport' },
-  { label: 'Mukerian to Hyderabad', to: '/routes/mukerian-to-hyderabad-transport' },
-  { label: 'Mukerian to Pune', to: '/routes/mukerian-to-pune-transport' },
+  { label: 'Delhi NCR', to: '/routes/delhi' },
+  { label: 'Noida, Uttar Pradesh', to: '/routes/noida' },
+  { label: 'Punjab', to: '/routes/delhi-to-mukerian-transport' },
+  { label: 'Mumbai, Maharashtra', to: '/routes/mukerian-to-mumbai-transport' },
+  { label: 'Pune, Maharashtra', to: '/routes/mukerian-to-pune-transport' },
+  { label: 'Bangalore, Karnataka', to: '/routes/mukerian-to-bangalore-transport' },
+  { label: 'Chennai, Tamil Nadu', to: '/routes/mukerian-to-chennai-transport' },
+  { label: 'Hyderabad, Telangana', to: '/routes/mukerian-to-hyderabad-transport' },
 ];
 
 export const WHY_CHOOSE = [

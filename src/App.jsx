@@ -29,7 +29,8 @@ const RENAMED = {
   '/routes/delhi-to-ludhiana-transport': '/routes/delhi-to-mukerian-transport',
   '/routes/ludhiana-to-mumbai-transport': '/routes/mukerian-to-mumbai-transport',
   '/routes/ludhiana-to-bangalore-transport': '/routes/mukerian-to-bangalore-transport',
-  '/routes/ludhiana-to-delhi-transport': '/routes/mukerian-to-delhi-transport',
+  '/routes/ludhiana-to-delhi-transport': '/routes/delhi',
+  '/routes/mukerian-to-delhi-transport': '/routes/delhi', // merged into the Delhi page
   '/routes/ludhiana-to-chennai-transport': '/routes/mukerian-to-chennai-transport',
   '/routes/ludhiana-to-hyderabad-transport': '/routes/mukerian-to-hyderabad-transport',
   '/routes/ludhiana-to-pune-transport': '/routes/mukerian-to-pune-transport',

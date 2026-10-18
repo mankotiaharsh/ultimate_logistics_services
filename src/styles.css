@@ -388,14 +388,15 @@ a.glass-block:hover h3 { color: var(--accent-light); }
 }
 .company-track { display: flex; align-items: center; width: max-content; animation: logoScroll 25s linear infinite; }
 .company-slider:hover .company-track { animation-play-state: paused; }
-.company-logo { flex: 0 0 auto; width: 260px; height: 110px; display: flex; align-items: center; justify-content: center; }
-.company-logo img { max-height: 100px; max-width: 130px; width: auto; object-fit: contain; transition: 0.4s; }
+/* every logo sits in an identical box: same width, height and side padding */
+.company-logo { flex: 0 0 auto; width: 260px; height: 110px; padding: 0 30px; display: flex; align-items: center; justify-content: center; }
+.company-logo img { width: calc(var(--w) * 1px); height: calc(var(--h) * 1px); max-width: 100%; object-fit: contain; transition: 0.4s; }
 .company-logo:hover img { transform: scale(1.1); }
 @keyframes logoScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 @media (max-width: 600px) {
   .company-section { padding: 45px 0 50px; }
-  .company-logo { width: 160px; height: 80px; }
-  .company-logo img { max-height: 70px; max-width: 100px; }
+  .company-logo { width: 170px; height: 80px; padding: 0 20px; }
+  .company-logo img { width: calc(var(--w) * 0.65px); height: calc(var(--h) * 0.65px); }
 }
 @media (prefers-reduced-motion: reduce) { .company-track { animation: none; } }
 
@@ -404,6 +405,7 @@ a.glass-block:hover h3 { color: var(--accent-light); }
 .page-title::before { content: ''; position: absolute; inset: 0; background: linear-gradient(0deg, rgba(11, 31, 53, 0.92) 0%, rgba(18, 48, 79, 0.8) 100%); }
 .title-text { position: relative; }
 .title-text h1 { font-family: 'Titillium Web', sans-serif; font-size: 50px; font-weight: 700; color: var(--white); margin-bottom: 10px; }
+.title-tagline { max-width: 680px; margin: -6px auto 18px; color: rgba(255, 255, 255, 0.88); font-size: 18px; line-height: 1.6; }
 .title-text ul { list-style: none; padding: 0; margin: 0; display: flex; justify-content: center; gap: 30px; color: var(--white); font-size: 18px; }
 .title-text li { position: relative; }
 .title-text li + li::before { content: ''; position: absolute; left: -18px; top: 50%; width: 5px; height: 6px; background: var(--white); transform: translateY(-50%); }
@@ -705,7 +707,7 @@ a.glass-block:hover h3 { color: var(--accent-light); }
 .team-head h2 { margin: 0; font-size: 44px; }
 /* flex (not grid) so an incomplete last row stays centred */
 .team-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 40px 20px; }
-.team-member { flex: 0 1 calc((100% - 80px) / 5); min-width: 170px; text-align: center; }
+.team-member { flex: 0 1 calc((100% - 60px) / 4); min-width: 170px; text-align: center; }
 .team-avatar { width: 120px; height: 120px; margin: 0 auto 16px; border-radius: 50%; overflow: hidden; display: grid; place-items: center; background: var(--cream); border: 3px solid var(--white); box-shadow: 0 0 0 1px #e8e1d3, 0 10px 24px rgba(18, 48, 79, 0.1); transition: transform 0.4s ease, box-shadow 0.4s ease; }
 .team-avatar img { width: 100%; height: 100%; object-fit: cover; }
 .team-avatar span { font-size: 30px; font-weight: 700; font-style: italic; color: #8a7a62; }
@@ -730,3 +732,23 @@ a.glass-block:hover h3 { color: var(--accent-light); }
   .team-cta { padding: 26px 22px; text-align: center; justify-content: center; }
   .team-cta-actions { justify-content: center; }
 }
+
+/* Privacy Policy / Terms pages */
+.legal h2 { font-size: 24px; margin: 36px 0 12px; }
+.legal p, .legal li { line-height: 1.8; }
+.legal ul { padding-left: 22px; margin: 0 0 14px; }
+.legal li { margin-bottom: 6px; }
+.legal a { color: var(--accent); }
+.legal-head { padding: 60px 0 10px; }
+.legal-head h1 { margin: 0 0 12px; font-size: 46px; font-weight: 400; color: var(--heading); }
+.legal-crumb { font-size: 17px; color: var(--text); }
+.legal-crumb a { color: var(--accent); }
+.legal-crumb a:hover { text-decoration: underline; }
+.legal-crumb span { margin: 0 6px; }
+.legal-updated { margin: 30px 0 24px; font-size: 17px; }
+.legal-updated strong { color: var(--heading); }
+@media (max-width: 600px) {
+  .legal-head { padding-top: 40px; }
+  .legal-head h1 { font-size: 34px; }
+}
+.legal-contact { list-style: none; padding: 20px 24px !important; border-radius: 12px; background: var(--navy-soft); }

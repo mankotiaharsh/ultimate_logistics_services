@@ -4,6 +4,15 @@ import { FaPlay, FaQuoteLeft, FaChevronLeft, FaChevronRight, FaStar, FaNewspaper
 import { IMG, CONTACT, WHY_CHOOSE } from '../data/site';
 import Icon from '../components/Icon';
 import FleetGallery from '../components/FleetGallery';
+import bhelLogo from '../assets/clients/bhel.png';
+import jcbLogo from '../assets/clients/jcb.png';
+import relianceLogo from '../assets/clients/reliance.png';
+import tataHitachiLogo from '../assets/clients/tata-hitachi.png';
+import birlaTmtLogo from '../assets/clients/birla-tmt.png';
+import amazonLogo from '../assets/clients/amazon.png';
+import fedexLogo from '../assets/clients/fedex.png';
+import dhlLogo from '../assets/clients/dhl.png';
+import walmartLogo from '../assets/clients/walmart.png';
 import { AboutTabs, Btn, Faq, SectionTitle, TrackBox, useTitle } from '../components/Common';
 
 // Add more reviews here; the arrows and dots appear once there is more than one.
@@ -99,13 +108,25 @@ const FAQS = [
   ['How do I get a price quote for my cargo?', 'Simply call us at 77105 89837 or email info@ultimatelogisticsservices.com for a quick rate. Share your pickup location, destination, load type, and approximate weight — we will provide a transparent, route-specific price with no hidden charges, typically within a few hours.'],
 ];
 
+// Trimmed logo copies live in assets/clients/. The number is each logo's width ÷ height,
+// used to size logos so wide wordmarks and square icons look equally prominent.
 const CLIENT_LOGOS = [
-  ['Amazon', 'https://img.icons8.com/color/120/amazon.png'],
-  ['FedEx', 'https://img.icons8.com/color/120/fedex.png'],
-  ['DHL', 'https://cdn-icons-png.flaticon.com/512/5968/5968527.png'],
-  ['UPS', 'https://img.icons8.com/color/120/ups.png'],
-  ['Walmart', 'https://img.icons8.com/color/120/walmart.png'],
+  ['BHEL', bhelLogo, 1.22],
+  ['JCB', jcbLogo, 3.21],
+  ['Reliance Industries', relianceLogo, 1.5],
+  ['Tata Hitachi', tataHitachiLogo, 10.17],
+  ['Birla TMT Steel', birlaTmtLogo, 4.0],
+  ['Amazon', amazonLogo, 0.97],
+  ['FedEx', fedexLogo, 3.43],
+  ['DHL', dhlLogo, 6.92],
+  ['Walmart', walmartLogo, 0.9],
 ];
+
+// Same visual weight for every logo: width grows with the square root of the shape (capped at 200px).
+const logoSize = (ratio) => {
+  const width = Math.min(200, Math.round(76 * Math.sqrt(ratio)));
+  return { '--w': width, '--h': Math.round(width / ratio) };
+};
 
 function Hero() {
   const [i, setI] = useState(0);
@@ -157,16 +178,16 @@ export default function Home() {
         caption={{ name: CONTACT.registered.legalName, role: 'Proprietor' }}
         title="We Provide Fast & Safe Service to Our Customer"
         about={[
-          'Ultimate Logistics Services began with a single truck and a clear promise: deliver every shipment safely and on time. Today, with a modern fleet and a dedicated team, we are one of the most trusted logistics companies in India, and we still follow that same commitment.',
-          "We know that a customer's reputation and responsibility are on the line with every shipment. That's why we handle your cargo with the utmost care and respect. Our central hub monitors shipments 24/7 to prevent delays before they happen. Choose our safe, efficient, and nationwide network for all your logistics needs!",
+          "Ultimate Logistics Services was founded on a simple promise: to deliver every shipment safely and on time. From our humble beginnings with a single truck to becoming one of India’s most trusted logistics networks, our commitment remains unchanged.",
+          "We know that every delivery carries your brand’s reputation, which is why we handle your cargo with uncompromised care and respect. Backed by a modern fleet and a dedicated control center monitoring shipments 24/7 to proactively prevent delays, we provide the safe, efficient, and seamless nationwide logistics solutions your business can depend on.",
         ]}
         mission={[
-          'Our mission is to make logistics easy, reliable, and stress-free for all of our customers. We do this by keeping high standards in all areas of our service, such as vehicle maintenance, staff training, and adapting to new technologies.',
-          'Every package you entrust to us represents your capital. We protect that capital by making sure there is no theft or loss during transit. Our ultimate aim is to be the service you choose without a second thought. Consistency is what makes a service trustworthy, and trust is the basis of everything we do.',
+          "Our mission is to deliver dependable, high-efficiency transport and logistics solutions that consistently surpass client expectations across India. Built on an unwavering foundation of safety, integrity, and professionalism, we treat every cargo assignment as a vital responsibility.",
+          "By combining transparent communication with flexible service models tailored to your evolving supply chain demands, we strive to earn your long-term trust and foster enduring partnerships through every mile.",
         ]}
         goal={[
-          "Our goal is to become India's top choice for damage-free transport. We want to grow our network, improve our operational systems, and serve more businesses with the same dedication that helped us build our reputation. Every successful delivery brings us closer to this goal.",
-          'We also pay equal attention to your growth at the same time. When your business expands, we succeed. We are committed to building long-term partnerships by ensuring that every single delivery, no matter how big or small, reinforces your confidence in choosing us as your primary transport service provider.',
+          "By 2030, our goal is to establish Ultimate Logistics Services as North India’s most trusted and preferred transport partner. We are actively expanding our fleet, diversifying our service offerings, and integrating advanced tracking technology to deliver real-time visibility and frictionless logistics management.",
+          "Rooted in our core values of safety, reliability, and customer-first service, we remain committed to sustainable growth and continuous innovation, setting new performance benchmarks across the supply chain industry.",
         ]}
         btn={<Btn to="/about-us" outline>Know More</Btn>}
       />
@@ -305,9 +326,9 @@ export default function Home() {
           <div className="company-slider">
             {/* Logos are listed twice so the strip can loop without a gap. */}
             <div className="company-track">
-              {[...CLIENT_LOGOS, ...CLIENT_LOGOS].map(([name, src], i) => (
+              {[...CLIENT_LOGOS, ...CLIENT_LOGOS].map(([name, src, ratio], i) => (
                 <div className="company-logo" key={i} aria-hidden={i >= CLIENT_LOGOS.length}>
-                  <img src={src} alt={name} />
+                  <img src={src} alt={name} style={logoSize(ratio)} />
                 </div>
               ))}
             </div>

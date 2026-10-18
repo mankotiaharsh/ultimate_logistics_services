@@ -1,17 +1,25 @@
 import { FaPhoneAlt } from 'react-icons/fa';
 import { CONTACT } from '../data/site';
 import { Btn, PageTitle, useTitle } from '../components/Common';
+import vikramVerma from '../assets/team/vikram-verma.webp';
 import sameerJain from '../assets/team/sameer-jain.webp';
+import deepanshuSharma from '../assets/team/deepanshu-sharma.webp';
+import anuragThakur from '../assets/team/anurag-thakur.webp';
+import chetanSharma from '../assets/team/chetan-sharma.webp';
+import jatinJaryal from '../assets/team/jatin-jaryal.webp';
+import bhabukBhatia from '../assets/team/bhabuk-bhatia.webp';
 
 // Team members: fill in each person's real role and a one-line description.
 // To show a real photo, put it in src/assets/team/, import it at the top and add `photo: importedName`;
 // until then the circle shows the person's initials.
 const TEAM = [
-  { name: 'Chetan Sharma', role: 'Role / Title', note: 'Short line about what they handle' },
+  { name: 'Vikram Verma', role: 'Admin Manager', note: 'Office administration & team coordination', photo: vikramVerma },
   { name: 'Sameer Jain', role: 'Logistics Supervisor', note: 'Loading, dispatch & on-time deliveries', photo: sameerJain },
-  { name: 'Deepansh Sharma', role: 'Role / Title', note: 'Short line about what they handle' },
-  { name: 'Anurag', role: 'Role / Title', note: 'Short line about what they handle' },
-  { name: 'Jaitin', role: 'Role / Title', note: 'Short line about what they handle' },
+  { name: 'Chetan Sharma', role: 'Accounts Manager', note: 'Billing, payments & GST invoicing', photo: chetanSharma },
+  { name: 'Deepanshu Sharma', role: 'Dispatch Coordinator', note: 'Truck allocation & departure scheduling', photo: deepanshuSharma },
+  { name: 'Anurag Thakur', role: 'Dispatch Coordinator', note: 'Driver coordination & load updates', photo: anuragThakur },
+  { name: 'Jatin Jaryal', role: 'Customs Coordinator', note: 'Documentation, e-way bills & compliance', photo: jatinJaryal },
+  { name: 'Bhabuk Bhatia', role: 'Tracking & Tracing', note: 'Live GPS monitoring & shipment updates', photo: bhabukBhatia },
 ];
 
 const initials = (name) => name.split(' ').map((w) => w[0]).slice(0, 2).join('').toUpperCase();

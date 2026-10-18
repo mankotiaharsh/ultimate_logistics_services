@@ -1,6 +1,16 @@
 import { Link } from 'react-router-dom';
 import { FaMapMarkerAlt, FaEnvelope, FaPhoneAlt, FaFacebookF, FaInstagram, FaLinkedinIn, FaChevronRight } from 'react-icons/fa';
-import { CONTACT, IMG, SERVICE_LINKS, ROUTE_LINKS } from '../data/site';
+import { CONTACT, IMG, SERVICE_LINKS } from '../data/site';
+
+// Destination states shown in the footer, each linking to its route page.
+const STATE_LINKS = [
+  { label: 'Delhi', to: '/routes/delhi' },
+  { label: 'Uttar Pradesh', to: '/routes/noida' },
+  { label: 'Maharashtra', to: '/routes/mukerian-to-mumbai-transport' },
+  { label: 'Karnataka', to: '/routes/mukerian-to-bangalore-transport' },
+  { label: 'Tamil Nadu', to: '/routes/mukerian-to-chennai-transport' },
+  { label: 'Telangana', to: '/routes/mukerian-to-hyderabad-transport' },
+];
 
 export default function Footer() {
   const mainPhone = CONTACT.phones[0];
@@ -48,9 +58,9 @@ export default function Footer() {
         </div>
 
         <div className="footer-widget">
-          <h3>Popular Routes</h3>
+          <h3>Where We Deliver</h3>
           <ul className="links">
-            {ROUTE_LINKS.slice(0, 6).map((r) => (
+            {STATE_LINKS.map((r) => (
               <li key={r.to}><Link to={r.to}><FaChevronRight /> {r.label}</Link></li>
             ))}
           </ul>

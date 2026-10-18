@@ -10,11 +10,13 @@ export function useTitle(title) {
   }, [title]);
 }
 
-export function PageTitle({ title, crumb }) {
+// `tagline` (optional) adds a short line under the title.
+export function PageTitle({ title, crumb, tagline }) {
   return (
     <section className="page-title" style={{ backgroundImage: `url(${IMG.pageBg})` }}>
       <div className="container title-text">
         <h1>{title}</h1>
+        {tagline && <p className="title-tagline">{tagline}</p>}
         <ul>
           <li><Link to="/">Home</Link></li>
           <li>{crumb || title}</li>
