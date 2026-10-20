@@ -5,6 +5,8 @@ import heavyHaulVessel from '../assets/trucks/web/heavy-haul-vessel.webp';
 import machineryTruck from '../assets/trucks/web/machinery-truck.webp';
 import machineryYard from '../assets/trucks/web/machinery-yard.webp';
 import oversizedVessel from '../assets/trucks/web/oversized-vessel.webp';
+import tractorTransporter from '../assets/trucks/web/tractor-transporter.webp';
+import tractorFlatbed from '../assets/trucks/web/tractor-flatbed.webp';
 
 // Optimised copies live in assets/trucks/web/ (the original PNGs are kept alongside but not loaded).
 // Each photo carries its own text and points, shown on the left while that photo is active.
@@ -25,11 +27,11 @@ const PHOTOS = [
     points: ['Each machine chained and blocked individually', 'Careful loading to protect painted and fragile parts', 'Ideal for factory relocations and new installations'],
   },
   {
-    src: machineryYard, pos: 'center 55%',
-    tag: 'Multi-Axle Trailer',
-    title: 'Machinery Loaded on Multi-Axle Trailer',
-    text: 'For the heaviest equipment, multi-axle trailers spread the weight across more wheels for a stable, road-safe journey, even on long routes.',
-    points: ['Multi-axle trailers for very heavy single units', 'Weight spread evenly for safe road movement', 'Suited to long-distance and inter-state moves'],
+    src: tractorTransporter, pos: '35% center',
+    tag: 'Agricultural Equipment',
+    title: 'Double-Deck Tractor Transporter',
+    text: 'Tractors and farm machinery travel best on purpose-built carriers. We move several units in a single trip, each secured in its own bay, for damage-free delivery to dealers.',
+    points: ['Double-deck carriers for multiple tractors per trip', 'Each unit chained and wheel-locked in place', 'Direct delivery to dealerships and showrooms'],
   },
   {
     src: oversizedVessel, pos: 'center 62%',
@@ -37,6 +39,20 @@ const PHOTOS = [
     title: 'Oversized Industrial Vessel on the Move',
     text: 'Project cargo for refineries, plants and construction sites runs on tight schedules. We coordinate pickup, transit and delivery so your project stays on track.',
     points: ['Coordinated pickup and site delivery', 'Live GPS tracking throughout the journey', 'Transit insurance available for high-value cargo'],
+  },
+  {
+    src: machineryYard, pos: 'center 55%',
+    tag: 'Multi-Axle Trailer',
+    title: 'Machinery Loaded on Multi-Axle Trailer',
+    text: 'For the heaviest equipment, multi-axle trailers spread the weight across more wheels for a stable, road-safe journey, even on long routes.',
+    points: ['Multi-axle trailers for very heavy single units', 'Weight spread evenly for safe road movement', 'Suited to long-distance and inter-state moves'],
+  },
+  {
+    src: tractorFlatbed, pos: '80% center',
+    tag: 'Vehicle Transport',
+    title: 'New Tractors on Flatbed Trailer',
+    text: 'From the factory gate to the dealer yard, we carry new tractors on flatbed trailers with careful loading, so every machine arrives showroom-ready.',
+    points: ['Flatbed trailers for new vehicles and machinery', 'Loading ramps and tie-downs for safe handling', 'Ideal for manufacturers and dealer networks'],
   },
 ];
 

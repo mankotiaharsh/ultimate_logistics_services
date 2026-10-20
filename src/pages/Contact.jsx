@@ -1,4 +1,4 @@
-import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaCheckCircle } from 'react-icons/fa';
+import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaCheckCircle, FaArrowRight } from 'react-icons/fa';
 import { CONTACT } from '../data/site';
 import { PageTitle, useTitle } from '../components/Common';
 
@@ -17,6 +17,9 @@ const EMAIL_TEMPLATE = `mailto:${CONTACT.email}?subject=${encodeURIComponent('Tr
   `Hello Ultimate Logistics Services,\n\nI would like a quote for the following shipment:\n\n${DETAILS.map((d) => `${d}: `).join('\n')}\n\nThank you.`
 )}`;
 
+// Opens Google Maps with directions to the office.
+const MAPS_LINK = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(CONTACT.address)}`;
+
 export default function Contact() {
   useTitle('Contact Ultimate Logistics Services | Mukerian, Punjab');
   const phone = CONTACT.phones[0];
@@ -28,20 +31,31 @@ export default function Contact() {
       <section className="contact-card-section pt-100 pb-70">
         <div className="container grid-3">
           <div className="contact-card">
-            <FaPhoneAlt className="cc-icon" />
-            {CONTACT.phones.map((p) => <a key={p.tel} href={`tel:${p.tel}`}>{p.label}</a>)}
+            <span className="cc-icon"><FaPhoneAlt /></span>
+            <h3>Call Us</h3>
+            <div className="cc-body">
+              {CONTACT.phones.map((p) => <a key={p.tel} href={`tel:${p.tel}`} className="cc-main">+91 {p.label}</a>)}
+              <p>Speak directly with our team for quotes and shipment updates.</p>
+            </div>
+            <a href={`tel:${phone.tel}`} className="cc-action">Call now <FaArrowRight /></a>
           </div>
           <div className="contact-card">
-            <FaEnvelope className="cc-icon" />
-            <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a>
+            <span className="cc-icon"><FaEnvelope /></span>
+            <h3>Email Us</h3>
+            <div className="cc-body">
+              <a href={`mailto:${CONTACT.email}`} className="cc-main cc-email">{CONTACT.email}</a>
+              <p>Send your shipment details and we’ll reply with a clear quote.</p>
+            </div>
+            <a href={EMAIL_TEMPLATE} className="cc-action">Send an email <FaArrowRight /></a>
           </div>
           <div className="contact-card">
-            <FaMapMarkerAlt className="cc-icon" />
-            <p>
-              <strong>{CONTACT.registered.tradeName}</strong><br />
-              Prop. {CONTACT.registered.legalName}<br />
-              {CONTACT.address}
-            </p>
+            <span className="cc-icon"><FaMapMarkerAlt /></span>
+            <h3>Visit Us</h3>
+            <div className="cc-body">
+              <span className="cc-main">{CONTACT.registered.tradeName}</span>
+              <p>{CONTACT.address}</p>
+            </div>
+            <a href={MAPS_LINK} target="_blank" rel="noreferrer" className="cc-action">Get directions <FaArrowRight /></a>
           </div>
         </div>
       </section>

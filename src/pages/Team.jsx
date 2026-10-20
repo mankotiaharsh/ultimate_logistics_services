@@ -14,9 +14,9 @@ import bhabukBhatia from '../assets/team/bhabuk-bhatia.webp';
 // until then the circle shows the person's initials.
 const TEAM = [
   { name: 'Vikram Verma', role: 'Admin Manager', note: 'Office administration & team coordination', photo: vikramVerma },
-  { name: 'Sameer Jain', role: 'Logistics Supervisor', note: 'Loading, dispatch & on-time deliveries', photo: sameerJain },
-  { name: 'Chetan Sharma', role: 'Accounts Manager', note: 'Billing, payments & GST invoicing', photo: chetanSharma },
-  { name: 'Deepanshu Sharma', role: 'Dispatch Coordinator', note: 'Truck allocation & departure scheduling', photo: deepanshuSharma },
+  { name: 'Sameer Jain', role: 'Logistics Supervisor', note: 'Fleet management, team leadership & safety compliance', photo: sameerJain },
+  { name: 'Chetan', role: 'Accounts Manager', note: 'Billing, payments & GST invoicing', photo: chetanSharma },
+  { name: 'Deepansh Sharma', role: 'Dispatch Coordinator', note: 'Truck allocation & departure scheduling', photo: deepanshuSharma },
   { name: 'Anurag Thakur', role: 'Dispatch Coordinator', note: 'Driver coordination & load updates', photo: anuragThakur },
   { name: 'Jatin Jaryal', role: 'Customs Coordinator', note: 'Documentation, e-way bills & compliance', photo: jatinJaryal },
   { name: 'Bhabuk Bhatia', role: 'Tracking & Tracing', note: 'Live GPS monitoring & shipment updates', photo: bhabukBhatia },

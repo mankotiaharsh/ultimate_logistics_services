@@ -4,6 +4,7 @@ import { FaPlay, FaQuoteLeft, FaChevronLeft, FaChevronRight, FaStar, FaNewspaper
 import { IMG, CONTACT, WHY_CHOOSE } from '../data/site';
 import Icon from '../components/Icon';
 import FleetGallery from '../components/FleetGallery';
+import flatbedPhoto from '../assets/trucks/web/tractor-truck.webp';
 import bhelLogo from '../assets/clients/bhel.png';
 import jcbLogo from '../assets/clients/jcb.png';
 import relianceLogo from '../assets/clients/reliance.png';
@@ -98,8 +99,83 @@ const SERVICES = [
   { img: IMG.truck3, icon: 'map', title: 'Door To Door', to: '/door-to-door-transport', text: 'We pick up cargo from your doorstep and deliver it directly to the receiver. You avoid visiting depots or arranging extra local transport. Our team handles all loading and unloading work.' },
 ];
 
-const INDUSTRIES_LEFT = [['textile', 'Textiles And Garments'], ['auto', 'Automotive and Spare Parts'], ['machine', 'Heavy Machinery'], ['fmcg', 'FMCG And Retail Distribution']];
-const INDUSTRIES_RIGHT = [['steel', 'Iron, Steel, and Construction'], ['pharma', 'Pharmaceuticals'], ['electronics', 'Electronics'], ['paper', 'Paper And Packaging']];
+// Icon, industry name, the line shown in the centre circle on hover, and the photo shown there.
+const unsplash = (url) => `${url}?w=700&auto=format&fit=crop&q=75`;
+// Commented-out industries are hidden for now; remove the // to show them again.
+const INDUSTRIES = [
+  // ['textile', 'Textiles And Garments', 'Fabric rolls, yarn and finished garments delivered on schedule.'],
+  ['auto', 'Automotive and Spare Parts', 'Spare parts, components and assemblies moved safely to plants and dealers.', unsplash('https://plus.unsplash.com/premium_photo-1682141811863-f8d97e951857')],
+  ['machine', 'Heavy Machinery', 'Plant equipment, gensets and industrial machines on low-bed and multi-axle trailers.', unsplash('https://images.unsplash.com/photo-1580901369227-308f6f40bdeb')],
+  // ['fmcg', 'FMCG And Retail Distribution', 'Packaged goods delivered to distributors and retailers on time.'],
+  ['steel', 'Iron, Steel, and Construction', 'Steel coils, pipes, rods and building material for sites and fabricators.', unsplash('https://images.unsplash.com/photo-1697281679213-fcab27e10ad4')],
+  // ['pharma', 'Pharmaceuticals', 'Medicines and healthcare products handled with extra care.'],
+  ['electronics', 'Electronics', 'Appliances and electronic goods, packed and secured to prevent damage.', unsplash('https://images.unsplash.com/photo-1776566347746-1bb7dcaa12d3')],
+  ['paper', 'Paper And Packaging', 'Paper reels, cartons and packaging material for manufacturers and printers.', unsplash('https://images.unsplash.com/photo-1747006116196-fc20e136e4c0')],
+];
+
+// Industries arranged in a circle around a centre photo; hovering (or tapping) one shows its details in the centre.
+function IndustryOrbit() {
+  const [active, setActive] = useState(-1);
+  const item = INDUSTRIES[active];
+  return (
+    <div className="industry-orbit" onMouseLeave={() => setActive(-1)}>
+      <div className={`orbit-center ${item ? 'show' : ''}`}>
+        {/* flatbed truck photo behind the brand message, plus one photo per industry; the active one fades in */}
+        <img src={flatbedPhoto} alt="Flatbed truck carrying new tractors" className={!item ? 'on' : ''} />
+        {INDUSTRIES.map(([, name, , photo], i) => photo && (
+          <img key={name} src={photo} alt={name} className={i === active ? 'on' : ''} loading="lazy" />
+        ))}
+        <div className="orbit-info" aria-live="polite">
+          {item ? (
+            <>
+              <span className="orbit-info-icon"><Icon name={item[0]} /></span>
+              <h3>{item[1]}</h3>
+              <p>{item[2]}</p>
+            </>
+          ) : (
+            <div className="orbit-brand">
+              <img src={IMG.logo} alt="" className="orbit-logo" />
+              <h3>Industries We Move</h3>
+              <ul className="orbit-stats">
+                <li><strong>8+</strong> Years</li>
+                <li><strong>28</strong> States</li>
+                <li><strong>19,000+</strong> Pincodes</li>
+              </ul>
+              <p className="orbit-hint">Hover an industry to learn more</p>
+            </div>
+          )}
+        </div>
+      </div>
+
+      {INDUSTRIES.map(([icon, name, text, photo], i) => {
+        // spread nodes evenly around the circle, starting at the top
+        const angle = (-90 + (360 / INDUSTRIES.length) * i) * (Math.PI / 180);
+        const x = Math.cos(angle);
+        const y = Math.sin(angle);
+        // label sits on the outer side of the button, away from the centre photo
+        const side = y < -0.7 ? 'top' : y > 0.7 ? 'bottom' : x < 0 ? 'left' : 'right';
+        return (
+          <button
+            key={name}
+            className={`orbit-node label-${side} ${i === active ? 'active' : ''}`}
+            style={{ '--x': x.toFixed(4), '--y': y.toFixed(4) }}
+            onMouseEnter={() => setActive(i)}
+            onFocus={() => setActive(i)}
+            onClick={() => setActive(i)}
+            aria-label={`${name}: ${text}`}
+          >
+            {/* photo thumbnail is only shown in the phone/tablet card layout */}
+            {photo && <span className="orbit-thumb"><img src={photo} alt="" loading="lazy" /></span>}
+            <span className="orbit-icon"><Icon name={icon} /></span>
+            <span className="orbit-label">{name}</span>
+            <span className="orbit-text">{text}</span>
+          </button>
+        );
+      })}
+    </div>
+  );
+}
+
 
 const FAQS = [
   ['Which locations does Ultimate Logistics Services cover in India?', 'We deliver to over 19,000 pincodes across all 28 states, covering major metros like Delhi, Mumbai, Bangalore, Chennai, and Hyderabad as well as remote villages. Established in 2018 and based in Mukerian, Punjab, we ensure your goods reach any destination in India safely and on time.'],
@@ -267,19 +343,7 @@ export default function Home() {
             title="Industries We Serve"
             text="We currently power the supply chains for these major Indian sectors. But we don't stop here. Our fleet is built for total versatility to handle any commercial cargo. You build the product; we guarantee it reaches the market."
           />
-          <div className="industries-grid">
-            <div className="industry-col">
-              {INDUSTRIES_LEFT.map(([icon, name]) => (
-                <div className="industry" key={name}><Icon name={icon} /> <h3>{name}</h3></div>
-              ))}
-            </div>
-            <div className="industry-img"><img src={IMG.truck2} alt="Industries We Serve" /></div>
-            <div className="industry-col">
-              {INDUSTRIES_RIGHT.map(([icon, name]) => (
-                <div className="industry" key={name}><Icon name={icon} /> <h3>{name}</h3></div>
-              ))}
-            </div>
-          </div>
+          <IndustryOrbit />
         </div>
       </section>
 
