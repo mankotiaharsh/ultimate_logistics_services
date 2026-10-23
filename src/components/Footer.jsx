@@ -94,7 +94,6 @@ export default function Footer() {
         <div className="container copyright-inner">
           <nav>
             <Link to="/about-us">About</Link>
-            <Link to="/blogs">Blog</Link>
             <Link to="/contact-us">Contact</Link>
             <Link to="/privacy-policy">Privacy Policy</Link>
             <Link to="/terms-of-service">Terms of Service</Link>

@@ -5,8 +5,6 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Team from './pages/Team';
 import Contact from './pages/Contact';
-import Blog from './pages/Blog';
-import BlogPost from './pages/BlogPost';
 import DetailPage from './pages/DetailPage';
 import Legal from './pages/Legal';
 import NotFound from './pages/NotFound';
@@ -18,7 +16,7 @@ const LEGACY = {
   '/index.php': '/',
   '/about-us.php': '/about-us',
   '/contact-us.php': '/contact-us',
-  '/blogs.php': '/blogs',
+  '/blogs.php': '/', // blog removed
   '/privacy-policy.php': '/privacy-policy',
   '/terms-of-service.php': '/terms-of-service',
 };
@@ -58,8 +56,9 @@ export default function App() {
           <Route path="/about-us" element={<About />} />
           <Route path="/our-team" element={<Team />} />
           <Route path="/contact-us" element={<Contact />} />
-          <Route path="/blogs" element={<Blog />} />
-          <Route path="/blog/:slug" element={<BlogPost />} />
+          {/* The blog has been removed; old blog links go to the home page. */}
+          <Route path="/blogs" element={<Navigate to="/" replace />} />
+          <Route path="/blog/*" element={<Navigate to="/" replace />} />
           <Route path="/privacy-policy" element={<Legal type="privacy" />} />
           <Route path="/terms-of-service" element={<Legal type="terms" />} />
 

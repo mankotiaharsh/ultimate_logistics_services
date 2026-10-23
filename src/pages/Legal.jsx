@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { useTitle } from '../components/Common';
+import { useScrollReveal, useTitle } from '../components/Common';
 import { CONTACT } from '../data/site';
 
 // Each page is a list of sections. A section can have paragraphs (`p`) and a bullet list (`list`),
@@ -165,6 +165,8 @@ const CONTACT_TEXT = {
 export default function Legal({ type }) {
   const t = TEXT[type];
   useTitle(`${t.title} | Ultimate Logistics Services`);
+  // gentle fade-up for each policy section; re-runs when switching between Privacy and Terms
+  useScrollReveal([['.legal > div', 'up'], ['.legal-contact', 'up']], [type]);
   return (
     <>
       {/* Simple text header (no photo banner) for the legal pages */}

@@ -1,6 +1,6 @@
 import { IMG, CONTACT, WHY_CHOOSE } from '../data/site';
 import Icon from '../components/Icon';
-import { AboutTabs, Btn, PageTitle, SectionTitle, TrackBox, useTitle } from '../components/Common';
+import { AboutTabs, Btn, PageTitle, SectionTitle, TrackBox, useScrollReveal, useTitle } from '../components/Common';
 
 const STATS = [['8+', 'Years in Operation'], ['19K+', 'Pincodes Covered'], ['28', 'States Served'], ['100%', 'B2B Focused']];
 
@@ -13,6 +13,16 @@ const TIMELINE = [
 
 export default function About() {
   useTitle('About Us | Ultimate Logistics Services – Est. 2018');
+  useScrollReveal([
+    ['.about-section .about-img', 'left'],
+    ['.about-section .about-text', 'right'],
+    ['.about-why .section-title', 'up'],
+    ['.about-why-card', 'up', 100],
+    ['.journey-section .section-title', 'up'],
+    ['.journey-section .stat', 'zoom', 120],
+    ['.timeline-item', 'left', 120],
+    ['.seo-about .container', 'up'],
+  ]);
   return (
     <>
       <PageTitle title="About Us" />

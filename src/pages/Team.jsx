@@ -1,6 +1,6 @@
 import { FaPhoneAlt } from 'react-icons/fa';
 import { CONTACT } from '../data/site';
-import { Btn, PageTitle, useTitle } from '../components/Common';
+import { Btn, PageTitle, useScrollReveal, useTitle } from '../components/Common';
 import vikramVerma from '../assets/team/vikram-verma.webp';
 import sameerJain from '../assets/team/sameer-jain.webp';
 import deepanshuSharma from '../assets/team/deepanshu-sharma.webp';
@@ -26,6 +26,11 @@ const initials = (name) => name.split(' ').map((w) => w[0]).slice(0, 2).join('')
 
 export default function Team() {
   useTitle('Our Team | Ultimate Logistics Services');
+  useScrollReveal([
+    ['.team-head', 'up'],
+    ['.team-member', 'up', 90],
+    ['.team-cta', 'flip'],
+  ]);
 
   return (
     <>

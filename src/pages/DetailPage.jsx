@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { FaCheckCircle, FaArrowRight } from 'react-icons/fa';
 import { IMG, SERVICE_LINKS, ROUTE_LINKS } from '../data/site';
 import Icon, { CYCLE } from '../components/Icon';
-import { AboutTabs, Btn, Faq, PageTitle, SectionTitle, useTitle } from '../components/Common';
+import { AboutTabs, Btn, Faq, PageTitle, SectionTitle, useScrollReveal, useTitle } from '../components/Common';
 
 const ALL_LINKS = [...SERVICE_LINKS, ...ROUTE_LINKS];
 const labelFor = (to) => {
@@ -24,6 +24,21 @@ const RELATED_INFO = {
 // Shared layout for every service page and every route page.
 export default function DetailPage({ data: d }) {
   useTitle(d.seoTitle);
+  useScrollReveal([
+    ['.transport-section .section-title', 'up'],
+    ['.transport-section .transport-card', 'up', 150],
+    ['.about-section .about-img', 'left'],
+    ['.about-section .about-text', 'right'],
+    ['.benefits-section .two-col > div:first-child', 'left'],
+    ['.benefits-img', 'right'],
+    ['.choose-section .section-title', 'up'],
+    ['.choose-card', 'zoom', 100],
+    ['.faq-intro', 'left'],
+    ['.faq-section .accordions', 'right'],
+    ['.related-section .section-title', 'up'],
+    ['.related-card', 'up', 120],
+    ['.seo-about .container', 'up'],
+  ], [d]);
   return (
     <>
       <PageTitle title={d.title} crumb={d.crumb} tagline={d.tagline} />

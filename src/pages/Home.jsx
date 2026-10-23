@@ -1,20 +1,23 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { FaPlay, FaQuoteLeft, FaChevronLeft, FaChevronRight, FaStar, FaNewspaper } from 'react-icons/fa';
+import { FaPlay, FaQuoteLeft, FaChevronLeft, FaChevronRight, FaStar } from 'react-icons/fa';
 import { IMG, CONTACT, WHY_CHOOSE } from '../data/site';
 import Icon from '../components/Icon';
 import FleetGallery from '../components/FleetGallery';
 import flatbedPhoto from '../assets/trucks/web/tractor-truck.webp';
+import appliancesPhoto from '../assets/trucks/web/appliances-truck.webp';
 import bhelLogo from '../assets/clients/bhel.png';
 import jcbLogo from '../assets/clients/jcb.png';
 import relianceLogo from '../assets/clients/reliance.png';
 import tataHitachiLogo from '../assets/clients/tata-hitachi.png';
 import birlaTmtLogo from '../assets/clients/birla-tmt.png';
+import mahindraLogo from '../assets/clients/mahindra.png';
+import sonalikaLogo from '../assets/clients/sonalika.png';
 import amazonLogo from '../assets/clients/amazon.png';
 import fedexLogo from '../assets/clients/fedex.png';
 import dhlLogo from '../assets/clients/dhl.png';
 import walmartLogo from '../assets/clients/walmart.png';
-import { AboutTabs, Btn, Faq, SectionTitle, TrackBox, useTitle } from '../components/Common';
+import { AboutTabs, Btn, Faq, SectionTitle, TrackBox, useScrollReveal, useTitle } from '../components/Common';
 
 // Add more reviews here; the arrows and dots appear once there is more than one.
 const TESTIMONIALS = [
@@ -109,13 +112,12 @@ const INDUSTRIES = [
   // ['fmcg', 'FMCG And Retail Distribution', 'Packaged goods delivered to distributors and retailers on time.'],
   ['steel', 'Iron, Steel, and Construction', 'Steel coils, pipes, rods and building material for sites and fabricators.', unsplash('https://images.unsplash.com/photo-1697281679213-fcab27e10ad4')],
   // ['pharma', 'Pharmaceuticals', 'Medicines and healthcare products handled with extra care.'],
-  ['electronics', 'Electronics', 'Appliances and electronic goods, packed and secured to prevent damage.', unsplash('https://images.unsplash.com/photo-1776566347746-1bb7dcaa12d3')],
+  ['electronics', 'Electronics', 'Appliances and electronic goods, packed and secured to prevent damage.', appliancesPhoto],
   ['paper', 'Paper And Packaging', 'Paper reels, cartons and packaging material for manufacturers and printers.', unsplash('https://images.unsplash.com/photo-1747006116196-fc20e136e4c0')],
 ];
 
 // Industries arranged in a circle around a centre photo; hovering (or tapping) one shows its details in the centre.
-function IndustryOrbit() {
-  const [active, setActive] = useState(-1);
+function IndustryOrbit({ active, setActive }) {
   const item = INDUSTRIES[active];
   return (
     <div className="industry-orbit" onMouseLeave={() => setActive(-1)}>
@@ -192,6 +194,8 @@ const CLIENT_LOGOS = [
   ['Reliance Industries', relianceLogo, 1.5],
   ['Tata Hitachi', tataHitachiLogo, 10.17],
   ['Birla TMT Steel', birlaTmtLogo, 4.0],
+  ['Mahindra', mahindraLogo, 2.0],
+  ['Sonalika', sonalikaLogo, 7.06],
   ['Amazon', amazonLogo, 0.97],
   ['FedEx', fedexLogo, 3.43],
   ['DHL', dhlLogo, 6.92],
@@ -229,8 +233,48 @@ function Hero() {
   );
 }
 
+// "Industries We Serve": holds the hovered industry so both the circle and the section background can use it.
+function IndustriesSection() {
+  const [active, setActive] = useState(-1);
+  return (
+    <section className={`industries-section pt-100 pb-70 ${active >= 0 ? 'has-bg' : ''}`}>
+      {/* the hovered industry's photo fades in behind the whole section */}
+      <div className="industries-bg" aria-hidden="true">
+        {INDUSTRIES.map(([, name, , photo], i) => photo && (
+          <img key={name} src={photo} alt="" className={i === active ? 'on' : ''} loading="lazy" />
+        ))}
+      </div>
+      <div className="container">
+        <SectionTitle
+          title="Industries We Serve"
+          text="We currently power the supply chains for these major Indian sectors. But we don't stop here. Our fleet is built for total versatility to handle any commercial cargo. You build the product; we guarantee it reaches the market."
+        />
+        <IndustryOrbit active={active} setActive={setActive} />
+      </div>
+    </section>
+  );
+}
+
 export default function Home() {
   useTitle('Best Transport Company in India | Ultimate Logistics Services');
+  // Scroll animations for each section below the hero.
+  useScrollReveal([
+    ['.features-section .feature-card', 'up', 120],
+    ['.about-section .about-img', 'left'],
+    ['.about-section .about-text', 'right'],
+    ['.transport-section .section-title', 'up'],
+    ['.transport-section .transport-card', 'up', 150],
+    ['.showcase-text', 'left'],
+    ['.showcase-media', 'right'],
+    ['.industries-section .section-title', 'up'],
+    ['.industry-orbit', 'zoom'],
+    ['.quote-grid > .glass-card', 'up', 150],
+    ['.faq-intro', 'left'],
+    ['.faq-section .accordions', 'right'],
+    ['.feedback-intro', 'up'],
+    ['.feedback-card-wrap', 'flip'],
+    ['.company-section', 'up'],
+  ]);
   return (
     <>
       <Hero />
@@ -337,15 +381,7 @@ export default function Home() {
       </section>
       */}
 
-      <section className="industries-section pt-100 pb-70">
-        <div className="container">
-          <SectionTitle
-            title="Industries We Serve"
-            text="We currently power the supply chains for these major Indian sectors. But we don't stop here. Our fleet is built for total versatility to handle any commercial cargo. You build the product; we guarantee it reaches the market."
-          />
-          <IndustryOrbit />
-        </div>
-      </section>
+      <IndustriesSection />
 
       <section className="quote-section" style={{ backgroundImage: `url(${IMG.quotePort})` }}>
         <div className="lines" aria-hidden="true"><span /><span /><span /></div>
@@ -372,10 +408,6 @@ export default function Home() {
               <h3><FaStar /> Trusted By India's Top Businesses</h3>
               <p>Hundreds of manufacturers rely on us daily. Read honest feedback about our speed, safety, and reliability.</p>
             </a>
-            <Link to="/blogs" className="glass-block">
-              <h3><FaNewspaper /> Latest Industry News</h3>
-              <p>Get real-time updates on Indian transport regulations and see how our growing network benefits your bottom line.</p>
-            </Link>
           </div>
         </div>
       </section>

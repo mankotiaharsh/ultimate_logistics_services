@@ -1,6 +1,6 @@
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaCheckCircle, FaArrowRight } from 'react-icons/fa';
 import { CONTACT } from '../data/site';
-import { PageTitle, useTitle } from '../components/Common';
+import { PageTitle, useScrollReveal, useTitle } from '../components/Common';
 
 // Details we ask visitors to include, so a quote can be given from the first message.
 const DETAILS = [
@@ -22,6 +22,11 @@ const MAPS_LINK = `https://www.google.com/maps/search/?api=1&query=${encodeURICo
 
 export default function Contact() {
   useTitle('Contact Ultimate Logistics Services | Mukerian, Punjab');
+  useScrollReveal([
+    ['.contact-card', 'up', 150],
+    ['.contact-area', 'left'],
+    ['.map-wrap', 'right'],
+  ]);
   const phone = CONTACT.phones[0];
 
   return (

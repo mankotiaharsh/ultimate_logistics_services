@@ -1,7 +1,43 @@
 import { Link } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useEffect, useLayoutEffect, useState } from 'react';
 import { FaPlus, FaPhoneAlt, FaSearchLocation } from 'react-icons/fa';
 import { CONTACT, IMG } from '../data/site';
+
+// Scroll animations: each rule is [CSS selector, effect, stagger in ms].
+// Matching elements fade/slide into place the first time they scroll into view.
+// Effects: 'up', 'left', 'right', 'zoom', 'flip'. Stagger delays each match after the first (for rows of cards).
+// `deps` re-runs it when the same page component shows new content (e.g. moving between service pages).
+export function useScrollReveal(rules, deps = []) {
+  useLayoutEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) return undefined;
+    const els = [];
+    rules.forEach(([selector, effect, stagger = 0]) => {
+      document.querySelectorAll(selector).forEach((el, i) => {
+        el.classList.add('reveal', `reveal-${effect}`);
+        if (stagger) el.style.transitionDelay = `${i * stagger}ms`;
+        els.push(el);
+      });
+    });
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          const el = e.target;
+          el.classList.add('in-view');
+          io.unobserve(el);
+          // once it has finished appearing, drop the reveal styles so the element's own hover effects work again
+          const delay = parseFloat(el.style.transitionDelay) || 0;
+          setTimeout(() => {
+            el.classList.remove('reveal', 'in-view', 'reveal-up', 'reveal-left', 'reveal-right', 'reveal-zoom', 'reveal-flip');
+            el.style.transitionDelay = '';
+          }, delay + 1100);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    els.forEach((el) => io.observe(el));
+    return () => io.disconnect();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, deps);
+}
 
 // Sets the browser tab title for each page.
 export function useTitle(title) {

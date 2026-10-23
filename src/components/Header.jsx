@@ -66,9 +66,6 @@ export default function Header() {
             <li className="nav-item"><NavLink to="/our-team" className="nav-link" onClick={close}>Our Team</NavLink></li>
             <Dropdown label="Services" items={SERVICE_LINKS} onNavigate={close} />
             <Dropdown label="Routes" items={ROUTE_LINKS} onNavigate={close} />
-            {/* Blog link, hidden for now. Remove this comment wrapper to show it again.
-            <li className="nav-item"><NavLink to="/blogs" className="nav-link" onClick={close}>Blog</NavLink></li>
-            */}
             <li className="nav-item"><NavLink to="/contact-us" className="nav-link" onClick={close}>Contact Us</NavLink></li>
           </ul>
         </div>
