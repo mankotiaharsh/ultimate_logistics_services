@@ -6,7 +6,6 @@ import { CONTACT } from '../data/site';
 // and `after` for paragraphs that follow the list.
 const PRIVACY = {
   title: 'Privacy Policy',
-  updated: 'October 2026',
   intro: [
     `${CONTACT.registered.tradeName} ("we", "us", or "our") is committed to protecting the privacy and security of the personal information you share with us. This Privacy Policy explains what information we collect through this website, how we use it, and your rights regarding that information.`,
   ],
@@ -75,14 +74,13 @@ const PRIVACY = {
     },
     {
       h: '9. Changes to This Policy',
-      p: ['We may update this Privacy Policy from time to time. The "Last updated" date at the top of this page will show when it was last changed. We encourage you to review this page periodically.'],
+      p: ['We may update this Privacy Policy from time to time. Any changes will be posted on this page, so we encourage you to review it periodically.'],
     },
   ],
 };
 
 const TERMS = {
   title: 'Terms of Service',
-  updated: 'October 2026',
   intro: [
     `Please read these Terms of Service ("Terms") carefully before using this website, operated by ${CONTACT.registered.tradeName} ("we", "us", or "our"). By accessing or using our website, you agree to be bound by these Terms. If you do not agree, please do not use the website.`,
   ],
@@ -139,7 +137,7 @@ const TERMS = {
     },
     {
       h: '8. Changes to These Terms',
-      p: ['We may update or modify these Terms at any time. Changes take effect as soon as they are posted on this website, and the "Last updated" date at the top of this page will reflect them. Your continued use of the website after changes are posted means you accept the revised Terms.'],
+      p: ['We may update or modify these Terms at any time. Changes take effect as soon as they are posted on this website. Your continued use of the website after changes are posted means you accept the revised Terms.'],
     },
     {
       h: '9. Governing Law',
